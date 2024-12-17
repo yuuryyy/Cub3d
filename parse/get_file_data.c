@@ -21,7 +21,7 @@ char	*valid_txtr(char *texture)
 	str = ft_strchr(texture, ' ', '\t');
 	if (!str || is_empty(str))
 		return (error(CONFERR), NULL);
-	tmp = ft_strtrim(str, " \t");
+	tmp = ft_strtrim(str, " \t\n");
 	free(texture);
 	return (tmp);
 }
@@ -60,7 +60,7 @@ int	get_data(t_data *data, char **av)
 	if (!content || get_textures(content, data))
 		return (free_data(data), 1);
 	if (check_textures(data, content))
-		return (1);
+		return (free_data(data), 1);
 		// while (1)
 	// {
 	// 	;

@@ -177,9 +177,6 @@ void		error(char *err);
 bool		map_content_check(t_data *data, char **map);
 void		rect_map(char **map, t_data *data);
 t_position	player_pos(char c);
-// void		path(char **map, t_map size, size_t x, size_t y);
-// char		**expand_inpath(t_data *data);
-
 
 
 

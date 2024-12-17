@@ -136,7 +136,6 @@ int	get_textures(t_list *content, t_data *data)
 	texture_num = 6;
 	while (tmp)
 	{
-		printf("%s\n", tmp->content);
 		if (is_empty(tmp->content))
 		{
 			tmp = tmp->next;

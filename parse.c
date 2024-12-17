@@ -45,19 +45,18 @@ int main(int ac, char **av)
 		return (error(ARGNUM), 1);
 	if(check_data(&data, av))
 		return (1);
-	// printf("%s\n", data.textures->c_color);
-	// printf("%s\n", data.textures->f_color);
-	// printf("%s\n", data.textures->we_txtr);
-	// printf("%s\n", data.textures->so_txtr);
-	// printf("%s\n", data.textures->ea_txtr);
-	// printf("%s\n", data.textures->no_txtr);
+	printf("%s\n", data.textures->c_color);
+	printf("%s\n", data.textures->f_color);
+	printf("%s\n", data.textures->we_txtr);
+	printf("%s\n", data.textures->so_txtr);
+	printf("%s\n", data.textures->ea_txtr);
+	printf("%s\n", data.textures->no_txtr);
 	// for(int i = 0; data.map[i]; i++)
 	// 	printf("|%s|\n", data.map[i]);
 	// printf("vdfdfvdfv\n");
 
 	if (init_data(&data))
 		return (free_data(&data), 1);
-	// free_data(&data);
 	// while (1)
 	// {
 	// 	;
@@ -78,4 +77,5 @@ int main(int ac, char **av)
 	mlx_hook(data.window, 17, 0, x_close, &data);
 	mlx_loop_hook(data.mlx, game_loop, &data);
 	mlx_loop(data.mlx);
+	free_data(&data);
 }
