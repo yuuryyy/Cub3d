@@ -26,12 +26,41 @@ char	*valid_txtr(char *texture)
 	return (tmp);
 }
 
+char	*valid_color(char *color)
+{
+	char	**split;
+	char	*textr;
+	int		k;
+	int		i;
+
+	textr = valid_txtr(color);
+	split = ft_split(textr, ',');
+	if (!split)
+		return (error("\tmalloc failed"), NULL);
+	if (array_len(split) != 3)
+		return (error(CONFERR), free_array(split), NULL);
+	i = -1;
+	while (split[++i])
+	{
+		k = -1;
+		while (split[i][++k])
+		{
+			if (split[i][k] > '9' || split[i][k] < '0')
+				return (error(CONFERR), free_array(split), NULL);
+		}
+		if (k > 3 || k < 1)
+			return (error(CONFERR), free_array(split), NULL);
+	}
+	free_array(split);
+	return (textr);
+}
+
 int	check_textures(t_data *data, t_list *content)
 {
-	data->textures->c_color = valid_txtr(data->textures->c_color);
+	data->textures->c_color = valid_color(data->textures->c_color);
 	if (!data->textures->c_color)
 		return (ft_lstclear(&content, free_del), 1);//free textures
-	data->textures->f_color = valid_txtr(data->textures->f_color);
+	data->textures->f_color = valid_color(data->textures->f_color);
 	if (!data->textures->f_color)
 		return (ft_lstclear(&content, free_del), 1);
 	data->textures->no_txtr = valid_txtr(data->textures->no_txtr);
