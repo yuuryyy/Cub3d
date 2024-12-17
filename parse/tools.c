@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tools.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
+/*   By: achbira <achbira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 04:57:26 by ychagri           #+#    #+#             */
-/*   Updated: 2024/12/15 23:08:02 by ychagri          ###   ########.fr       */
+/*   Updated: 2024/12/16 22:59:43 by achbira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ void	free_data(t_data *data)
 		return ;
 	if (data->textures)
 	{
-		printf("in\n");
 		if(data->textures->no_txtr)
 			free_del(data->textures->no_txtr);
 		if(data->textures->so_txtr)

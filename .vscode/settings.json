@@ -1,0 +1,7 @@
+{
+	"files.associations": {
+		"cub3d_parse.h": "c",
+		"__locale": "c",
+		"mlx.h": "c"
+	}
+}
