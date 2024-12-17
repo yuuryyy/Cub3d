@@ -33,6 +33,7 @@ bool	map_content_check(t_data *data, char **map)
 				data->coords.player.pos = player_pos(map[i][k]);
 				data->coords.player.x = k;
 				data->coords.player.y = i;
+				map[i][k] = '0';
 			}
 			else if (map[i][k] != ' ' && map[i][k] != '1' && map[i][k] != '0')
 				return (error("\tInvalid characters !!"), free_data(data), false);
