@@ -48,7 +48,7 @@ char	*valid_color(char *color)
 			if (split[i][k] > '9' || split[i][k] < '0')
 				return (error(CONFERR), free_array(split), NULL);
 		}
-		if (k > 3 || k < 1)
+		if (k > 3 || k < 1 || ft_atoi(split[i]) > 255 || ft_atoi(split[i]) < 0)
 			return (error(CONFERR), free_array(split), NULL);
 	}
 	free_array(split);

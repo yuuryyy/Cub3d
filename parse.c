@@ -51,8 +51,8 @@ int main(int ac, char **av)
 	printf("%s\n", data.textures->so_txtr);
 	printf("%s\n", data.textures->ea_txtr);
 	printf("%s\n", data.textures->no_txtr);
-	// for(int i = 0; data.map[i]; i++)
-	// 	printf("|%s|\n", data.map[i]);
+	for(int i = 0; data.map[i]; i++)
+		printf("|%s|\n", data.map[i]);
 	// printf("vdfdfvdfv\n");
 
 	if (init_data(&data))
