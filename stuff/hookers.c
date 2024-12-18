@@ -3,12 +3,14 @@
 int	e_close(t_data *stuff)
 {
 	mlx_destroy_window(stuff->mlx, stuff->window);
+	free_data(stuff);
 	return (exit (0), 0);
 }
 
 int	x_close(t_data *stuff)
 {
 	mlx_destroy_window(stuff->mlx, stuff->window);
+	free_data(stuff);
 	return (exit (0), 0);
 }
 

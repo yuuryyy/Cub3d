@@ -7,7 +7,7 @@ int	init_tex(t_data *data)
 	i = -1;
 	while (++i < 4)
 	{
-		printf("{%s}  \n",((char **)data->textures)[i]);
+		// printf("{%s}  \n",((char **)data->textures)[i]);
 		if (!i || i == 2)
 			data->textures->texs[i].xpm.img = mlx_xpm_file_to_image(data->mlx, \
 			"textures/wolfenstein/grey_stone.xpm", &data->textures->texs[i].w, &data->textures->texs[i].h);
@@ -61,7 +61,7 @@ int	init_data(t_data *data)
 		data->coords.player.plane.x = 0;
 		data->coords.player.plane.y = -0.66;
 	}
-	if (data->coords.player.pos == west)// KANYE???
+	if (data->coords.player.pos == west)// KANYE??? miss westieee
 	{
 		data->coords.player.dir.x = 1;
 		data->coords.player.dir.y = 0;

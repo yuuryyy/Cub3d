@@ -59,7 +59,7 @@ int	check_textures(t_data *data, t_list *content)
 {
 	data->textures->c_color = valid_color(data->textures->c_color);
 	if (!data->textures->c_color)
-		return (ft_lstclear(&content, free_del), 1);//free textures
+		return (ft_lstclear(&content, free_del), 1);
 	data->textures->f_color = valid_color(data->textures->f_color);
 	if (!data->textures->f_color)
 		return (ft_lstclear(&content, free_del), 1);
@@ -90,10 +90,6 @@ int	get_data(t_data *data, char **av)
 		return (free_data(data), 1);
 	if (check_textures(data, content))
 		return (free_data(data), 1);
-		// while (1)
-	// {
-	// 	;
-	// }
 	data->map = get_map(content);
 	ft_lstclear(&content, free_del);
 	if (!data->map)

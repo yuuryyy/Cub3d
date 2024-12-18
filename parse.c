@@ -45,33 +45,9 @@ int main(int ac, char **av)
 		return (error(ARGNUM), 1);
 	if(check_data(&data, av))
 		return (1);
-	printf("%s\n", data.textures->c_color);
-	printf("%s\n", data.textures->f_color);
-	printf("%s\n", data.textures->we_txtr);
-	printf("%s\n", data.textures->so_txtr);
-	printf("%s\n", data.textures->ea_txtr);
-	printf("%s\n", data.textures->no_txtr);
-	for(int i = 0; data.map[i]; i++)
-		printf("|%s|\n", data.map[i]);
-	// printf("vdfdfvdfv\n");
-
 	if (init_data(&data))
 		return (free_data(&data), 1);
-	// while (1)
-	// {
-	// 	;
-	// }
-	//check file content;
-	//check map chars 
-	//get map and texts plyr pos width height...
-
-
-
-
 	mlx_hook(data.window, 6, 0, mouse_rot, &data);
-
-
-
 	mlx_hook(data.window, 2, 0, hook_press, &data);
 	mlx_hook(data.window, 3, 0, hook_release, &data);
 	mlx_hook(data.window, 17, 0, x_close, &data);
