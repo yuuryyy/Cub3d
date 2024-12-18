@@ -96,6 +96,12 @@ typedef struct s_textures
 	t_texpm		texs[4];
 }	t_textures;
 
+
+typedef	struct s_colors
+{
+	int	f_color;
+	int	c_color;
+}	t_colors;
 typedef struct s_data
 {
 	void		*mlx;
@@ -106,6 +112,7 @@ typedef struct s_data
 	t_map		coords;
 	char		**map;
 
+	t_colors	colors;
 
 	// movement
 	int	w;

@@ -78,6 +78,22 @@ int	check_textures(t_data *data, t_list *content)
 	return (0);
 }
 
+int	get_color(char *color)
+{
+	char	**split;
+	int		r;
+	int		g;
+	int		b;
+
+	split = ft_split(color, ',');
+	if (!split)
+		return (error("\tmalloc failed"), -1);
+	r = ft_atoi(split[0]);
+	g = ft_atoi(split[1]);
+	b = ft_atoi(split[2]);
+	return (r << 16 | g << 8 | b);
+}
+
 int	get_data(t_data *data, char **av)
 {
 	t_list		*content;
@@ -94,5 +110,9 @@ int	get_data(t_data *data, char **av)
 	ft_lstclear(&content, free_del);
 	if (!data->map)
 		return (free_data(data), error("Failed to get the map"), 1); //free data struct
+	data->colors.c_color = get_color(data->textures->c_color);
+	data->colors.f_color = get_color(data->textures->f_color);
+	// printf("%d\n", data->colors.c_color);
+	// printf("%d\n", data->colors.f_color);
 	return (0);
 }
