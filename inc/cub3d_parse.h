@@ -13,7 +13,7 @@
 #ifndef CUB3D_PARSE_H
 # define CUB3D_PARSE_H
 
-# include <mlx.h>
+// # include <mlx.h>
 # include "../lib/Libft/libft.h"
 # include <stdlib.h>
 # include <stdio.h>

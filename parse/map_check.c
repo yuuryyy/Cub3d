@@ -43,9 +43,9 @@ int	trim_map(t_data *data, char **map)
 	max = 0;
 	while (map[i])
 	{
-		len = ft_strlen(map[i]);
-		len--;
-		map[i][len] = '\0';
+		len = ft_strlen(map[i]) - 1;
+		if (map[i][len] == '\n')
+			map[i][len] = '\0';
 		if (max < len)
 			max = len;
 		i++;
@@ -69,6 +69,7 @@ bool	space_check(char *line1, char *line2)
 			return (false);
 		i++;
 	}
+	// printf("%s\n", line2);
 	if (!line1[i] && !line2[i])
 		return (true);
 	else if (!line1[i])
@@ -93,6 +94,7 @@ bool	check_walls(t_data *data, char **map)
 	i = -1;
 	while (map[++i])
 	{
+		// printf("%s\n", map[i]);
 		if (space_check(map[i], map[i + 1]) == false)
 			return (free_data(data), error("\tWhite space unclosed!!"), false);
 		tmp = ft_strtrim(map[i], " ");
@@ -108,6 +110,7 @@ bool	check_walls(t_data *data, char **map)
 		}
 		else if (tmp[0] != '1' || tmp[ft_strlen(tmp) - 1] != '1')
 			return (free(tmp), free_data(data),error("\tUnclosed map"),false);
+		free(tmp);
 	}
 	return (true);
 }

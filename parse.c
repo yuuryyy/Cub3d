@@ -23,18 +23,18 @@ void	use_hips2(float angle, t_player *p)
 	p->plane.y = oldx * sin(angle) + p->plane.y *cos(angle);
 }
 
-int	mouse_rot(int x, int y, void *arg)
-{
-	t_data	*data;
-	static int	a;
+// int	mouse_rot(int x, int y, void *arg)
+// {
+// 	t_data	*data;
+// 	static int	a;
 
-	data = arg;
-	if (a < x)
-		use_hips2(data->rot_sped, &data->coords.player);
-	else
-		use_hips2(-data->rot_sped, &data->coords.player);
-	return (a = x);
-}
+// 	data = arg;
+// 	if (a < x)
+// 		use_hips2(data->rot_sped, &data->coords.player);
+// 	else
+// 		use_hips2(-data->rot_sped, &data->coords.player);
+// 	return (a = x);
+// }
 
 int main(int ac, char **av)
 {
@@ -45,13 +45,13 @@ int main(int ac, char **av)
 		return (error(ARGNUM), 1);
 	if(check_data(&data, av))
 		return (1);
-	if (init_data(&data))
-		return (free_data(&data), 1);
-	mlx_hook(data.window, 6, 0, mouse_rot, &data);
-	mlx_hook(data.window, 2, 0, hook_press, &data);
-	mlx_hook(data.window, 3, 0, hook_release, &data);
-	mlx_hook(data.window, 17, 0, x_close, &data);
-	mlx_loop_hook(data.mlx, game_loop, &data);
-	mlx_loop(data.mlx);
+	// if (init_data(&data))
+	// 	return (free_data(&data), 1);
+	// mlx_hook(data.window, 6, 0, mouse_rot, &data);
+	// mlx_hook(data.window, 2, 0, hook_press, &data);
+	// mlx_hook(data.window, 3, 0, hook_release, &data);
+	// mlx_hook(data.window, 17, 0, x_close, &data);
+	// mlx_loop_hook(data.mlx, game_loop, &data);
+	// mlx_loop(data.mlx);
 	free_data(&data);
 }

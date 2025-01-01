@@ -18,11 +18,11 @@ SRC		:=	parse/errors.c \
 			parse/get_file_data.c \
 			parse/fill_sp.c \
 			parse.c \
-			stuff/do_stuff.c \
-			stuff/game_loop_stuff.c \
-			stuff/pandoras_box.c \
-			stuff/init_stuff.c \
-			stuff/hookers.c \
+			# stuff/do_stuff.c \
+			# stuff/game_loop_stuff.c \
+			# stuff/pandoras_box.c \
+			# stuff/init_stuff.c \
+			# stuff/hookers.c \
 
 OBG		:= $(SRC:.c=.o)
 
@@ -32,10 +32,10 @@ libft	:
 	make -C lib
 
 $(NAME) : $(OBG) libft
-	 $(CC)  $(CFLAGS) $(MFLAGS) $(OBG) $(LIBRARY)  -o $(NAME)
+	 $(CC)  $(CFLAGS)  $(OBG) $(LIBRARY)  -o $(NAME)
 
 %.o : %.c $(HEADER)
-	 $(CC) $(CFLAGS) -Imlx -c $< -o $@
+	 $(CC) $(CFLAGS)  -c $< -o $@
 
 clean:
 	make clean -C lib

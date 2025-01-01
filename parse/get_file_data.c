@@ -91,6 +91,7 @@ int	get_color(char *color)
 	r = ft_atoi(split[0]);
 	g = ft_atoi(split[1]);
 	b = ft_atoi(split[2]);
+	free_array(split);
 	return (r << 16 | g << 8 | b);
 }
 
