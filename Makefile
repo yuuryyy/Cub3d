@@ -7,6 +7,8 @@ CFLAGS	:=  -Wall -Wextra  -I./inc -g -fsanitize=address
 
 MFLAGS	:=	-framework OpenGL -framework AppKit -Lmlx -lmlx 
 
+MINUX	:= -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
+
 HEADER	:= ./inc/cub3d_parse.h 
 
 LIBRARY	:= lib/libft.a
@@ -18,11 +20,11 @@ SRC		:=	parse/errors.c \
 			parse/get_file_data.c \
 			parse/fill_sp.c \
 			parse.c \
-			# stuff/do_stuff.c \
-			# stuff/game_loop_stuff.c \
-			# stuff/pandoras_box.c \
-			# stuff/init_stuff.c \
-			# stuff/hookers.c \
+			stuff/controls.c \
+			stuff/game_loop.c \
+			stuff/init_stuff.c \
+			stuff/hookers.c \
+			stuff/drawing.c \
 
 OBG		:= $(SRC:.c=.o)
 
@@ -32,10 +34,10 @@ libft	:
 	make -C lib
 
 $(NAME) : $(OBG) libft
-	 $(CC)  $(CFLAGS)  $(OBG) $(LIBRARY)  -o $(NAME)
+	 $(CC)  $(CFLAGS) $(OBG)  $(MINUX) $(LIBRARY) -o $(NAME)
 
 %.o : %.c $(HEADER)
-	 $(CC) $(CFLAGS)  -c $< -o $@
+	 $(CC) $(CFLAGS)  -I/usr/include -Imlx_linux  -c $< -o $@
 
 clean:
 	make clean -C lib

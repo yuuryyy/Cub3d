@@ -6,28 +6,28 @@
 /*   By: achbira <achbira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 20:52:16 by ychagri           #+#    #+#             */
-/*   Updated: 2024/12/16 23:10:54 by achbira          ###   ########.fr       */
+/*   Updated: 2025/03/13 20:51:50 by achbira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_PARSE_H
 # define CUB3D_PARSE_H
 
-// # include <mlx.h>
 # include "../lib/Libft/libft.h"
 # include <stdlib.h>
 # include <stdio.h>
 # include <unistd.h>
 # include <stdbool.h>
 # include <math.h>
+# include <mlx.h>
 
 
 # define RED   "\x1B[31m"
 # define GREEN "\x1B[32m"
 # define BLUE  "\x1B[34m"
 # define RESET "\x1B[0m"
-# define WIDTH	960
-# define HEIGHT	525
+# define WIDTH	1440
+# define HEIGHT	758
 # define TW 64
 # define TH 64
 
@@ -47,18 +47,10 @@ typedef struct s_img
 	int		endian;
 }	t_img;
 
-typedef struct s_texpm
-{
-	char	*file_name;
-	t_img	xpm;
-	int		w;
-	int		h;
-}	t_texpm;
-
 typedef struct s_vect
 {
-	double	x;
-	double	y;
+	float	x;
+	float	y;
 }	t_vect;
 
 typedef enum  s_position
@@ -93,7 +85,6 @@ typedef struct s_textures
 	char		*we_txtr;
 	char		*f_color;
 	char		*c_color;
-	t_texpm		texs[4];
 }	t_textures;
 
 
@@ -102,18 +93,10 @@ typedef	struct s_colors
 	int	f_color;
 	int	c_color;
 }	t_colors;
-typedef struct s_data
+
+
+typedef struct s_controller
 {
-	void		*mlx;
-	void		*window;
-	t_img		game_img;
-
-	t_textures	*textures;
-	t_map		coords;
-	char		**map;
-
-	t_colors	colors;
-
 	// movement
 	int	w;
 	int	a;
@@ -122,50 +105,47 @@ typedef struct s_data
 	int	rr;
 	int	rl;
 	float mov_sped;
-	float rot_sped;
+	float rot_sped;	
+}	t_controller;
+
+
+typedef struct s_data
+{
+	void		*mlx;
+	void		*window;
+	t_img		game_img;
+	
+	char		**map;
+	t_map		coords;
+	t_controller move;
+	
+	t_textures	*textures;
+	t_colors	colors;
 }	t_data;
 
-
-
-
-
 // raaaaaaaaaaaaaaaaaaa
-typedef struct s_strip
-{
-	int		line_h;
-	int		start;
-	int		end;
-	float	wallx;
-	int		tx;
-	int		ty;
-	float	tp;
-	int		color;
-
-}	t_strip;
-
 typedef struct s_ray
 {
-	float	dirx;
-	float	diry;
+	t_vect	dir;
 
-	float	side_x;
-	float	delta_x;
-	float	side_y;
-	float	delta_y;
+	t_vect	side;
+	t_vect	delta;
 
-	int		i;
-	int		j;
-	int		step_j;
-	int		step_i;
+	t_vect	step;
+	int		map_y;
+	int		map_x;
 
 	int		v_h;
 	float	wall_dist;
 	int		hit_wall;
+
+	int		line_h;
+	int		start;
+	int		end;
+	unsigned int	color;
 }	t_ray;
 
-void	ray_shit(t_data *all);
-
-
+void	create_world(t_data *all);
 
 
 
@@ -189,15 +169,12 @@ t_position	player_pos(char c);
 
 
 
-int	init_data(t_data *data);
-// boo
-int	game_loop(void *arg);
-// wingle wingle 
-void do_stuff(t_data *all);
-
-int	x_close(t_data *stuff);
-int	hook_release(int keycode, t_data *stuff);
-int	hook_press(int keycode, t_data *stuff);
+int		init_data(t_data *data);
+int		game_loop(void *arg);
+void	move_player(t_data *all);
+int		x_exit(t_data *data);
+int		key_release_hook(int keycode, t_data *data);
+int		key_press_hook(int keycode, t_data *data);
 
 
 #endif
