@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_loop.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: achbira <achbira@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 03:09:10 by achbira           #+#    #+#             */
-/*   Updated: 2025/03/13 20:35:53 by achbira          ###   ########.fr       */
+/*   Updated: 2025/03/15 22:48:51 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,19 @@ void	clear_canvas(t_data *data)
 		mlx_destroy_image(data->mlx, data->game_img.img);
 	data->game_img.img = mlx_new_image(data->mlx, WIDTH, HEIGHT);
 	if (!data->game_img.img)
-		exit(1);
+		exit(1);//error msg todo
 	data->game_img.addr = mlx_get_data_addr(data->game_img.img, \
 		&data->game_img.bits_per_pixel, \
 		&data->game_img.line_length, &data->game_img.endian);
 	if (!data->game_img.addr)
-		exit(1);
+		exit(1);// error msg todo
 }
 
 int	game_loop(void *arg)
 {
 	t_data	*data;
 
-	data = arg;
+	data = arg;//(t_data *)arg todo;
 	clear_canvas(data);
 	
 	move_player(data);

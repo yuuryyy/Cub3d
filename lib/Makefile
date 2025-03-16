@@ -6,7 +6,7 @@
 #    By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/03 01:10:21 by ychagri           #+#    #+#              #
-#    Updated: 2024/12/10 19:55:06 by ychagri          ###   ########.fr        #
+#    Updated: 2025/03/16 00:01:51 by ychagri          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,7 +45,6 @@ $(NAME): $(OBJS)  $(OBJS_G)
 	$(ARC) $(NAME) $(OBJS)  $(OBJS_G)
 
 %.o : %.c	$(LIBRARY) $(LIBRARY_G) 
-
 	$(CC) $(CFLAGS) -c $<
 
 clean:

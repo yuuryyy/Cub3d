@@ -34,10 +34,10 @@ libft	:
 	make -C lib
 
 $(NAME) : $(OBG) libft
-	 $(CC)  $(CFLAGS) $(OBG)  $(MINUX) $(LIBRARY) -o $(NAME)
+	 $(CC)  $(CFLAGS) $(OBG) $(MINUX) $(LIBRARY) -o $(NAME)
 
 %.o : %.c $(HEADER)
-	 $(CC) $(CFLAGS)  -I/usr/include -Imlx_linux  -c $< -o $@
+	 $(CC) $(CFLAGS)  -I/usr/include -Imlx_linux -O3 -c $< -o $@
 
 clean:
 	make clean -C lib

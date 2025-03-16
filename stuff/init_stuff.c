@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_stuff.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: achbira <achbira@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 20:34:37 by achbira           #+#    #+#             */
-/*   Updated: 2025/03/13 20:34:38 by achbira          ###   ########.fr       */
+/*   Updated: 2025/03/15 21:51:07 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,11 +61,11 @@ int	init_data(t_data *data)
 	// mlx 
 	data->mlx = mlx_init();
 	if (!data->mlx)
-		return (1);
+		return (1);//error msg todo
 	data->window = mlx_new_window(data->mlx, WIDTH, HEIGHT, "arson is cool");
 	if (!data->window)
-		return (1);
-	data->game_img.img = NULL;
+		return (1);//error msg todo
+	data->game_img.img = NULL; // bzero would be better todo
 
 	data->move.mov_sped = 0.05;
 	data->move.rot_sped = 0.05;
