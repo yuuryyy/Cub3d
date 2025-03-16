@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   drawing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: achbira <achbira@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 20:34:33 by achbira           #+#    #+#             */
-/*   Updated: 2025/03/13 20:49:55 by achbira          ###   ########.fr       */
+/*   Updated: 2025/03/16 01:38:14 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ int	build_wall_stripe(t_ray *r, t_data *all, int x)
 	y = r->start - 1;
 	while (++y < r->end)
 		pp(x, y, r->color, &all->game_img);
-	return (y);
+	return (y); 
 }
 
 void	create_world(t_data *all)

@@ -6,7 +6,7 @@
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 20:34:37 by achbira           #+#    #+#             */
-/*   Updated: 2025/03/15 21:51:07 by ychagri          ###   ########.fr       */
+/*   Updated: 2025/03/16 00:14:05 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,10 +65,10 @@ int	init_data(t_data *data)
 	data->window = mlx_new_window(data->mlx, WIDTH, HEIGHT, "arson is cool");
 	if (!data->window)
 		return (1);//error msg todo
-	data->game_img.img = NULL; // bzero would be better todo
+	data->game_img.img = NULL; // TODO: bzero would be better todo
 
-	data->move.mov_sped = 0.05;
-	data->move.rot_sped = 0.05;
+	data->move.mov_sped = BASE_SPEED;
+	data->move.rot_sped = BASE_ROTATION_SPEED;
 	
 	direct_player(&data->coords.player);
 	return (0);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_parse.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: achbira <achbira@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 20:52:16 by ychagri           #+#    #+#             */
-/*   Updated: 2025/03/13 20:51:50 by achbira          ###   ########.fr       */
+/*   Updated: 2025/03/16 02:27:31 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,10 @@
 # define CONFERR "\tthe configuration file is misconfigured."
 # define EMPTYLN "\tthe map containts empty lines!"
 # define PCONFLCT "\tA conflict in player's start position!"
+
+
+# define BASE_SPEED 0.05
+# define BASE_ROTATION_SPEED 0.05
 
 typedef struct s_img
 {
@@ -164,9 +168,6 @@ void		error(char *err);
 bool		map_content_check(t_data *data, char **map);
 void		rect_map(char **map, t_data *data);
 t_position	player_pos(char c);
-
-
-
 
 
 int		init_data(t_data *data);
