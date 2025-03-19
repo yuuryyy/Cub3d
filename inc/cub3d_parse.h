@@ -6,7 +6,7 @@
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 20:52:16 by ychagri           #+#    #+#             */
-/*   Updated: 2025/03/16 02:27:31 by ychagri          ###   ########.fr       */
+/*   Updated: 2025/03/19 02:40:56 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,21 +112,6 @@ typedef struct s_controller
 	float rot_sped;	
 }	t_controller;
 
-
-typedef struct s_data
-{
-	void		*mlx;
-	void		*window;
-	t_img		game_img;
-	
-	char		**map;
-	t_map		coords;
-	t_controller move;
-	
-	t_textures	*textures;
-	t_colors	colors;
-}	t_data;
-
 // raaaaaaaaaaaaaaaaaaa
 typedef struct s_ray
 {
@@ -149,8 +134,43 @@ typedef struct s_ray
 	unsigned int	color;
 }	t_ray;
 
-void	create_world(t_data *all);
 
+typedef struct s_loaded_tex
+{
+	t_img	img;
+	int		width;
+	int		height;
+
+}	t_loaded_tex;
+
+
+typedef struct s_ready_tex
+{
+	t_loaded_tex	no_txtr;
+	t_loaded_tex	so_txtr;
+	t_loaded_tex	ea_txtr;
+	t_loaded_tex	we_txtr;
+
+}	t_ready_tex;
+
+typedef struct s_data
+{
+	void		*mlx;
+	void		*window;
+	t_img		game_img;
+	
+	char		**map;
+	t_map		coords;
+	t_controller move;
+	
+	t_textures	*textures;
+	t_colors	colors;
+	t_ready_tex	ready_tex;
+}	t_data;
+
+void	create_world(t_data *all);
+t_loaded_tex *get_texture(t_data *data, t_ray *ray);
+void	load_all_textures(t_ready_tex *textures, void *mlx, t_data *data);
 
 
 
