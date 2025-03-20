@@ -6,7 +6,7 @@
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 20:34:37 by achbira           #+#    #+#             */
-/*   Updated: 2025/03/20 01:45:05 by ychagri          ###   ########.fr       */
+/*   Updated: 2025/03/20 04:36:41 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ int	init_data(t_data *data)
 	data->mlx = mlx_init();
 	if (!data->mlx)
 		return (1);//error msg todo
+	load_all_textures(&data->ready_tex, data->mlx, data);
 	data->window = mlx_new_window(data->mlx, WIDTH, HEIGHT, "arson is cool");
 	if (!data->window)
 		return (1);//error msg todo
@@ -69,7 +70,6 @@ int	init_data(t_data *data)
 	
 	data->move.mov_sped = BASE_SPEED;
 	data->move.rot_sped = BASE_ROTATION_SPEED;
-	load_all_textures(&data->ready_tex, data->mlx, data);
 	direct_player(&data->coords.player);
 	return (0);
 }

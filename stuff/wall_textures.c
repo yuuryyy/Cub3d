@@ -6,18 +6,11 @@
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 03:48:48 by ychagri           #+#    #+#             */
-/*   Updated: 2025/03/20 04:17:50 by ychagri          ###   ########.fr       */
+/*   Updated: 2025/03/20 04:32:57 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "cub3d_parse.h"
-
-
-
-// int	texture_walls(t_data *all, t_ray *ray, int x, )
-// {
-
-// }
 
 int	get_tex_x(t_ray *r, t_loaded_tex *tex, float wall_x)
 {
