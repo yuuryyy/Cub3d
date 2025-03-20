@@ -6,7 +6,7 @@
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 20:52:16 by ychagri           #+#    #+#             */
-/*   Updated: 2025/03/19 02:40:56 by ychagri          ###   ########.fr       */
+/*   Updated: 2025/03/20 04:16:03 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,6 +126,7 @@ typedef struct s_ray
 
 	int		v_h;
 	float	wall_dist;
+	float	wall_x;
 	int		hit_wall;
 
 	int		line_h;
@@ -168,11 +169,11 @@ typedef struct s_data
 	t_ready_tex	ready_tex;
 }	t_data;
 
-void	create_world(t_data *all);
+void		create_world(t_data *all);
 t_loaded_tex *get_texture(t_data *data, t_ray *ray);
-void	load_all_textures(t_ready_tex *textures, void *mlx, t_data *data);
-
-
+void		load_all_textures(t_ready_tex *textures, void *mlx, t_data *data);
+int			build_wall_stripe(t_ray *r, t_data *all, int x);
+void	pp(int x, int y, int color, t_img *data);
 
 int			get_textures(t_list *content, t_data *data);
 t_list		*get_file_content(char *filename);

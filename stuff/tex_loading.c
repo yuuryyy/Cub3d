@@ -6,7 +6,7 @@
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 23:55:30 by ychagri           #+#    #+#             */
-/*   Updated: 2025/03/19 04:35:11 by ychagri          ###   ########.fr       */
+/*   Updated: 2025/03/20 03:31:25 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,10 @@
 void destroy_texture(t_loaded_tex *tex, void *mlx)
 {
     if (tex->img.img)
+    {
         mlx_destroy_image(mlx, tex->img.img);
-    tex->img.img = NULL;
+        tex->img.img = NULL;
+    }
 }
 
 void destroy_all_textures(t_ready_tex *textures, void *mlx)
@@ -42,11 +44,20 @@ void load_texture(t_data *data, t_loaded_tex *tex, void *mlx, char *file)
                                       &tex->img.bits_per_pixel, 
                                       &tex->img.line_length, 
                                       &tex->img.endian);
+    if (!tex->img.addr)
+    {
+        destroy_texture(tex, mlx);
+        free_data(data);
+        destroy_all_textures(&data->ready_tex, data->mlx);
+        error("image addressing failed");
+        exit(1);
+    }
 }
 
 
 void load_all_textures(t_ready_tex *textures, void *mlx, t_data *data)
 {
+    // printf("Loading textures\n");
     load_texture(data, &textures->no_txtr, mlx, data->textures->no_txtr);
 	load_texture(data, &textures->so_txtr, mlx, data->textures->so_txtr);
     load_texture(data, &textures->ea_txtr, mlx, data->textures->ea_txtr);

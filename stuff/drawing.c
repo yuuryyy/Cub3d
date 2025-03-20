@@ -6,7 +6,7 @@
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 20:34:33 by achbira           #+#    #+#             */
-/*   Updated: 2025/03/19 02:30:31 by ychagri          ###   ########.fr       */
+/*   Updated: 2025/03/20 03:49:16 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,22 +73,6 @@ void	send_rays(t_ray *r, t_player *p, t_data *all, int x)
 	}
 }
 
-int	build_wall_stripe(t_ray *r, t_data *all, int x)
-{
-	int		y;
-
-	r->wall_dist = r->side.x - r->delta.x;
-	if (r->v_h)
-		r->wall_dist = r->side.y - r->delta.y;
-	r->line_h = (int)(HEIGHT / r->wall_dist);
-	r->start = fmax(HEIGHT / 2 - r->line_h / 2, 0);
-	r->end = fmin(HEIGHT / 2 + r->line_h / 2, HEIGHT - 1);
-	r->color = 0x37ff7f50;
-	y = r->start - 1;
-	while (++y < r->end)
-		pp(x, y, r->color, &all->game_img);
-	return (y); 
-}
 
 void	create_world(t_data *all)
 {

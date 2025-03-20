@@ -1,9 +1,9 @@
-NO	./textures/wolfenstein/grey_stone.xpm
-SO	./textures/wolfenstein/grey_stone.xpm
-WE	./textures/wolfenstein/grey_stone.xpm
-EA	./textures/wolfenstein/grey_stone.xpm
+NO	./textures/wolfenstein/blue_stone.xpm
+SO	./textures/wolfenstein/color_stone.xpm
+WE	./textures/wolfenstein/eagle.xpm
+EA	./textures/wolfenstein/mossy.xpm
 
-C 93,150,93
+C 93,154,93
 F 150,100,0
  
 

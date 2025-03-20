@@ -27,6 +27,7 @@ SRC		:=	parse/errors.c \
 			stuff/hookers.c \
 			stuff/drawing.c \
 			stuff/tex_loading.c \
+			stuff/wall_textures.c \
 
 OBG		:= $(SRC:.c=.o)
 
