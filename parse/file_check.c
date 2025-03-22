@@ -6,7 +6,7 @@
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 02:25:13 by ychagri           #+#    #+#             */
-/*   Updated: 2024/12/15 22:59:05 by ychagri          ###   ########.fr       */
+/*   Updated: 2025/03/22 02:07:01 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ t_list	*get_file_content(char *filename)
 	extenstion = ft_strrchr(filename, '.');
 	if (!extenstion || ft_strncmp(extenstion, ".cub", 5))
 		return (error(FILNAM), NULL);
-	fd = open(filename, O_RDONLY , 0644);
+	fd = open(filename, O_RDONLY, 0644);
 	if (fd == -1)
 		return (error(NULL), perror(filename), NULL);
 	line = get_next_line(fd);
@@ -52,12 +52,11 @@ bool	is_empty(char *line)
 	return (true);
 }
 
-
 t_list	*index_map(t_list *content)
 {
 	t_list	*tmp;
 	int		index;
-	
+
 	tmp = content;
 	index = 6;
 	while (tmp && index)
@@ -86,7 +85,7 @@ char	**get_map(t_list *content)
 		tmp = tmp->next;
 		len++;
 	}
-	map = malloc((len  + 1) * sizeof(char *));
+	map = malloc((len + 1) * sizeof(char *));
 	if (!map)
 		return (NULL);
 	len = 0;
@@ -108,7 +107,7 @@ int	is_texture(char *line, t_textures *texture)
 	i = 0;
 	while (line[i] && (line[i] == ' ' || line[i] == '\t'))
 		i++;
-	if(!ft_strncmp(&line[i], "NO ", 3) || !ft_strncmp(&line[i], "NO\t", 3))
+	if (!ft_strncmp(&line[i], "NO ", 3) || !ft_strncmp(&line[i], "NO\t", 3))
 		return (texture->no_txtr = ft_strdup(line), 1);
 	else if (!ft_strncmp(&line[i], "SO ", 3) || !ft_strncmp(&line[i], "SO\t", 3))
 		return (texture->so_txtr = ft_strdup(line), 1);
@@ -116,13 +115,12 @@ int	is_texture(char *line, t_textures *texture)
 		return (texture->we_txtr = ft_strdup(line), 1);
 	else if (!ft_strncmp(&line[i], "EA ", 3) || !ft_strncmp(&line[i], "EA\t", 3))
 		return (texture->ea_txtr = ft_strdup(line), 1);
-	else if (!ft_strncmp(&line[i], "F ", 2)  || !ft_strncmp(&line[i], "F\t", 2))
+	else if (!ft_strncmp(&line[i], "F ", 2) || !ft_strncmp(&line[i], "F\t", 2))
 		return (texture->f_color = ft_strdup(line), 1);
-	else if (!ft_strncmp(&line[i], "C ", 2)  || !ft_strncmp(&line[i], "C\t", 2))
+	else if (!ft_strncmp(&line[i], "C ", 2) || !ft_strncmp(&line[i], "C\t", 2))
 		return (texture->c_color = ft_strdup(line), 1);
 	return (0);
 }
-
 
 int	get_textures(t_list *content, t_data *data)
 {

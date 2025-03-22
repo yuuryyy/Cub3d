@@ -6,11 +6,12 @@
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 20:34:33 by achbira           #+#    #+#             */
-/*   Updated: 2025/03/20 03:49:16 by ychagri          ###   ########.fr       */
+/*   Updated: 2025/03/22 03:46:49 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_parse.h"
+#include <mlx.h>
 
 void	pp(int x, int y, int color, t_img *data)
 {

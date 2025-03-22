@@ -6,7 +6,7 @@
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 03:09:10 by achbira           #+#    #+#             */
-/*   Updated: 2025/03/16 00:37:23 by ychagri          ###   ########.fr       */
+/*   Updated: 2025/03/22 04:41:58 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,54 @@ void	clear_canvas(t_data *data)
 		exit(1);//TODO error msg 
 }
 
+bool is_border(int x, int y)
+{
+	return (x <= MAP_X + MAP_BORDER_SIZE || x >= MAP_X + MAP_W - MAP_BORDER_SIZE || y <= MAP_Y + MAP_BORDER_SIZE || y >= MAP_Y + MAP_H - MAP_BORDER_SIZE);
+}
+ 
+bool is_wall(t_data *data, int x, int y)
+{
+	int player_x; int player_y;
+
+}
+
+void draw_minimap(t_data *data)
+{
+	int x;
+	int y;
+
+	x = MAP_X;
+	while (x < MAP_X + MAP_W)
+	{
+		y = MAP_Y;
+		while (y < MAP_Y + MAP_H)
+		{
+			if (is_border(x, y))
+				pp(x, y, MAP_BORDER, &data->game_img);
+			else if (is_wall(data ,data->coords.player.x,data->coords.player.y, x, y))
+				pp(x, y, MAP_WALL, &data->game_img);
+			else
+				pp(x, y, MAP_COLOR, &data->game_img);
+			y++;
+		}
+		x++;
+	}
+	pp(MAP_X + (MAP_W / 2), MAP_Y + (MAP_H / 2), PLAYER_COLOR, &data->game_img);
+}
+
+// MA PARCE MA WALO 1
 int	game_loop(void *arg)
 {
 	t_data	*data;
 
-	data = arg; // TODO (t_data *)arg 
+	data = arg;
 	clear_canvas(data);
 	
 	move_player(data);
 	
 	create_world(data);
+	draw_minimap(data);
 	mlx_put_image_to_window(data->mlx, data->window, data->game_img.img, 0, 0);
-
 
 	return (0);
 }

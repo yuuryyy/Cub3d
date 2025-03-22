@@ -6,7 +6,7 @@
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 01:30:34 by ychagri           #+#    #+#             */
-/*   Updated: 2024/12/15 22:56:54 by ychagri          ###   ########.fr       */
+/*   Updated: 2025/03/22 02:03:54 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,10 +110,8 @@ int	get_data(t_data *data, char **av)
 	data->map = get_map(content);
 	ft_lstclear(&content, free_del);
 	if (!data->map)
-		return (free_data(data), error("Failed to get the map"), 1); //free data struct
+		return (free_data(data), error("Failed to get the map"), 1);
 	data->colors.c_color = get_color(data->textures->c_color);
 	data->colors.f_color = get_color(data->textures->f_color);
-	// printf("%d\n", data->colors.c_color);
-	// printf("%d\n", data->colors.f_color);
 	return (0);
 }

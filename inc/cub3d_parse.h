@@ -6,7 +6,7 @@
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 20:52:16 by ychagri           #+#    #+#             */
-/*   Updated: 2025/03/20 04:16:03 by ychagri          ###   ########.fr       */
+/*   Updated: 2025/03/22 04:32:20 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,9 @@
 # define GREEN "\x1B[32m"
 # define BLUE  "\x1B[34m"
 # define RESET "\x1B[0m"
-# define WIDTH	1440
-# define HEIGHT	758
+# define WIDTH	1444
+# define HEIGHT	1080
+
 # define TW 64
 # define TH 64
 
@@ -40,6 +41,25 @@
 
 # define BASE_SPEED 0.05
 # define BASE_ROTATION_SPEED 0.05
+
+
+// ######## MINI MAP params ###########
+# define MAP_X 10
+# define MAP_Y 10
+# define MAP_SCALE 10 // -> 1 block = 5 pixels
+# define MAP_W (WIDTH / 4)
+# define MAP_H (HEIGHT / 4)
+// ######
+# define MAP_BORDER_SIZE 1
+# define MAP_BORDER 0x00FF00
+
+# define MAP_COLOR 0x00000
+# define MAP_WALL 0x0F0000
+
+# define PLAYER_COLOR 0x00FF60
+# define PLAYER_SIZE 5
+// ####################################
+
 
 typedef struct s_img
 {

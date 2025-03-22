@@ -2,8 +2,7 @@ NAME	:= cub3D
 
 CC		:= cc
 
-CFLAGS	:=  -Wall -Wextra  -I./inc 
-#-g -fsanitize=address
+CFLAGS	:=  -Wall -Wextra  -I./inc -g -fsanitize=address
 #-Werror
 
 MFLAGS	:=	-framework OpenGL -framework AppKit -Lmlx -lmlx 
@@ -42,7 +41,7 @@ $(NAME) : $(OBG) libft
 %.o : %.c $(HEADER)
 	 $(CC) $(CFLAGS)  -I/usr/include -Imlx_linux -O3 -c $< -o $@
 
-clean:
+clean :
 	make clean -C lib
 	rm -rf $(OBG)
 
