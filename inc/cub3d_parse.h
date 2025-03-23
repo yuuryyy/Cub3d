@@ -6,7 +6,7 @@
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 20:52:16 by ychagri           #+#    #+#             */
-/*   Updated: 2025/03/23 15:52:55 by ychagri          ###   ########.fr       */
+/*   Updated: 2025/03/23 17:55:14 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 # define GREEN "\x1B[32m"
 # define BLUE  "\x1B[34m"
 # define RESET "\x1B[0m"
-# define WIDTH	1444
+# define WIDTH	3000
 # define HEIGHT	1080
 
 # define TW 64
@@ -39,14 +39,13 @@
 # define PCONFLCT "\tA conflict in player's start position!"
 
 
-# define BASE_SPEED 0.05
-# define BASE_ROTATION_SPEED 0.05
+# define BASE_SPEED 0.06
+# define BASE_ROTATION_SPEED 0.07
 
 
 // ######## MINI MAP params ###########
 # define MAP_X 10
 # define MAP_Y 10
-# define MAP_SCALE 10 // -> 1 block = 5 pixels
 # define MAP_W (WIDTH / 4)
 # define MAP_H (HEIGHT / 4)
 // ######
@@ -56,10 +55,10 @@
 #define FLOOR_COLOR  0x808080
 
 # define MAP_COLOR 0x00000
-# define MAP_WALL 0x0F7000
+# define MAP_WALL 0x000000
 
-# define PLAYER_COLOR 0xFFFF0000
-# define PLAYER_SIZE 7
+# define PLAYER_COLOR 0xFFFFFFFF
+# define PLAYER_SIZE 5
 
 
 

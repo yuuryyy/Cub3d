@@ -1,10 +1,10 @@
-NO	./textures/wolfenstein/blue_stone.xpm
-SO	./textures/wolfenstein/color_stone.xpm
-WE	./textures/wolfenstein/eagle.xpm
-EA	./textures/wolfenstein/mossy.xpm
+NO	./textures/grids.xpm
+SO	./textures/grids.xpm
+WE	./textures/tes2.xpm
+EA	./textures/test.xpm
 
-F 220,100,0
-C 225,30,0
+F 0,0,0
+C 225,255,255
         1111111111111111111111111
         1000000000110000000000001
         1011000001110000000000001
