@@ -6,7 +6,7 @@
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 20:52:16 by ychagri           #+#    #+#             */
-/*   Updated: 2025/03/22 04:32:20 by ychagri          ###   ########.fr       */
+/*   Updated: 2025/03/23 15:52:55 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,11 +53,20 @@
 # define MAP_BORDER_SIZE 1
 # define MAP_BORDER 0x00FF00
 
-# define MAP_COLOR 0x00000
-# define MAP_WALL 0x0F0000
+#define FLOOR_COLOR  0x808080
 
-# define PLAYER_COLOR 0x00FF60
-# define PLAYER_SIZE 5
+# define MAP_COLOR 0x00000
+# define MAP_WALL 0x0F7000
+
+# define PLAYER_COLOR 0xFFFF0000
+# define PLAYER_SIZE 7
+
+
+
+#define POINTER_SIZE 5   // Size of the arrowhead
+#define POINTER_LENGTH 10 // Length of the arrow
+
+
 // ####################################
 
 

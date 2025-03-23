@@ -6,7 +6,7 @@
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 19:30:00 by ychagri           #+#    #+#             */
-/*   Updated: 2024/12/16 18:42:34 by ychagri          ###   ########.fr       */
+/*   Updated: 2025/03/23 13:33:36 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ bool	map_content_check(t_data *data, char **map)
 				return (error("\tInvalid characters !!"), free_data(data), false);
 		}
 	}
+	if (!pos)
+		return (error("\tNo player position !!"), free_data(data), false);
 	return (true);
 }
 
