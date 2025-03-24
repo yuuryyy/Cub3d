@@ -6,7 +6,7 @@
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 20:52:16 by ychagri           #+#    #+#             */
-/*   Updated: 2025/03/23 17:55:14 by ychagri          ###   ########.fr       */
+/*   Updated: 2025/03/24 22:13:56 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,15 +50,15 @@
 # define MAP_H (HEIGHT / 4)
 // ######
 # define MAP_BORDER_SIZE 1
-# define MAP_BORDER 0x00FF00
+# define MAP_BORDER 0x000000
 
-#define FLOOR_COLOR  0x808080
+#define FLOOR_COLOR  0x808080  // grey color
 
 # define MAP_COLOR 0x00000
 # define MAP_WALL 0x000000
 
 # define PLAYER_COLOR 0xFFFFFFFF
-# define PLAYER_SIZE 5
+# define PLAYER_SIZE 10
 
 
 
