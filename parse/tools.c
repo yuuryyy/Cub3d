@@ -6,7 +6,7 @@
 /*   By: achbira <achbira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 04:57:26 by ychagri           #+#    #+#             */
-/*   Updated: 2024/12/16 22:59:43 by achbira          ###   ########.fr       */
+/*   Updated: 2025/03/25 00:21:49 by achbira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,15 @@ void	free_data(t_data *data)
 		return ;
 	if (data->textures)
 	{
+		if(data->ready_tex.no_txtr.img.img)
+			mlx_destroy_image(data->mlx, data->ready_tex.no_txtr.img.img);
+		if(data->ready_tex.so_txtr.img.img)
+			mlx_destroy_image(data->mlx, data->ready_tex.so_txtr.img.img);
+		if(data->ready_tex.we_txtr.img.img)
+			mlx_destroy_image(data->mlx, data->ready_tex.we_txtr.img.img);
+		if(data->ready_tex.ea_txtr.img.img)
+			mlx_destroy_image(data->mlx, data->ready_tex.ea_txtr.img.img);
+
 		if(data->textures->no_txtr)
 			free_del(data->textures->no_txtr);
 		if(data->textures->so_txtr)
@@ -70,6 +79,8 @@ void	free_data(t_data *data)
 	}
 	if (data->map)
 		free_array(data->map);
+	if (data->game_img.img)
+		mlx_destroy_image(data->mlx, data->game_img.img);
 	ft_bzero(data, sizeof(t_data));
 	data = NULL;
 }
