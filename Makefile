@@ -2,8 +2,7 @@ NAME	:= cub3D
 
 CC		:= cc
 
-CFLAGS	:=  -Wall -Wextra  -I./inc -g -fsanitize=address
-#-Werror
+CFLAGS	:=  -Wall -Wextra -Werror -I./inc -g -fsanitize=address
 
 MFLAGS	:=	-framework OpenGL -framework AppKit -Lmlx -lmlx 
 
@@ -27,7 +26,8 @@ SRC		:=	parse/errors.c \
 			stuff/drawing.c \
 			stuff/tex_loading.c \
 			stuff/wall_textures.c \
-
+			stuff/niminap.c
+			
 OBG		:= $(SRC:.c=.o)
 
 all	: $(NAME)

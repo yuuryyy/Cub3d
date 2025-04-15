@@ -3,119 +3,37 @@
 /*                                                        :::      ::::::::   */
 /*   game_loop.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
+/*   By: achbira <achbira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 03:09:10 by achbira           #+#    #+#             */
-/*   Updated: 2025/03/24 22:16:47 by ychagri          ###   ########.fr       */
+/*   Updated: 2025/04/15 11:48:16 by achbira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_parse.h"
 
-void	clear_canvas(t_data *data)
+int	clear_canvas(t_data *data)
 {
 	if (data->game_img.img)
 		mlx_destroy_image(data->mlx, data->game_img.img);
 	data->game_img.img = mlx_new_image(data->mlx, WIDTH, HEIGHT);
 	if (!data->game_img.img)
-		exit(1);//TODO error msg 
+		return (error("Failed to create image."), 1); 
 	data->game_img.addr = mlx_get_data_addr(data->game_img.img, \
 		&data->game_img.bits_per_pixel, \
 		&data->game_img.line_length, &data->game_img.endian);
 	if (!data->game_img.addr)
-		exit(1);//TODO error msg 
-}
-
-bool is_border(int x, int y)
-{
-	return (x <= MAP_X + MAP_BORDER_SIZE || x >= MAP_X + MAP_W - MAP_BORDER_SIZE || y <= MAP_Y + MAP_BORDER_SIZE || y >= MAP_Y + MAP_H - MAP_BORDER_SIZE);
-}
- 
-
-void	draw_player_on_minimap(t_data *data)
-{
-	int	x;
-	int	y;
-	t_player p;
-	p = data->coords.player;
-	x = MAP_X + (MAP_W * data->coords.player.x / data->coords.width) - (PLAYER_SIZE / 2);
-	y = MAP_Y + (MAP_H * data->coords.player.y / data->coords.height) - (PLAYER_SIZE / 2);
-	
-	for (int i = 0; i < PLAYER_SIZE; i++)
-	{
-		for (int j = 0; j < PLAYER_SIZE; j++)
-			pp(x + i, y + j, PLAYER_COLOR, &data->game_img);
-	}
-
-	
-	float a;
-	float b;
-
-	a = data->coords.player.x + 6 * (float)data->coords.width / MAP_W * data->coords.player.dir.x;
-	b = data->coords.player.y + 6 * (float)data->coords.width / MAP_W * data->coords.player.dir.y;
-	x = MAP_X + (MAP_W * a / data->coords.width) - (PLAYER_SIZE / 2);
-	y = MAP_Y + (MAP_H * b / data->coords.height) - (PLAYER_SIZE / 2);
-	
-	for (int i = 0; i < PLAYER_SIZE; i++)
-	{
-		for (int j = 0; j < PLAYER_SIZE; j++)
-		{
-			pp(x + i, y + j, 0xff0000, &data->game_img);
-		}
-	}
-}
-
-
-int	is_wall(t_data *data, int x, int y)
-{
-	int	map_x;
-	int	map_y;
-
-	map_x = (x - MAP_X) * data->coords.width / MAP_W;
-	map_y = (y - MAP_Y) * data->coords.height / MAP_H;
-	
-	if (map_x < 0 || map_x >= (int)data->coords.width || map_y < 0 || map_y >= (int)data->coords.height)
-		return (0);
-	
-	if (data->map[map_y][map_x] == '1')
-		return (1);
+		return (error("Failed to get image data."), 1); 
 	return (0);
 }
-
-void	draw_minimap(t_data *data)
-{
-	int	x;
-	int	y;
-	int	color;
-	
-	x = MAP_X;
-
-	while (x <= MAP_X + MAP_W)
-	{
-		y = MAP_Y;
-		while (y <= MAP_Y + MAP_H)
-		{
-			if (!((x - MAP_X) % (MAP_W/data->coords.width)) || !((y - MAP_Y) % (MAP_H/data->coords.height)))
-				color = FLOOR_COLOR;
-			else if (is_wall(data, x, y))
-				color = MAP_WALL;
-			else
-				color = FLOOR_COLOR;
-			pp(x, y, color, &data->game_img);
-			y++;
-		}
-		x++;
-	}
-	draw_player_on_minimap(data);
-}
-
 
 int	game_loop(void *arg)
 {
 	t_data	*data;
 	
 	data = arg;
-	clear_canvas(data);
+	if (clear_canvas(data))
+		x_exit(data);
 	
 	move_player(data);
 	
@@ -125,37 +43,3 @@ int	game_loop(void *arg)
 	
 	return (0);
 }
-
-
-
-
-
-// bool is_wall(t_data *data, int x, int y)
-// {
-// 	int player_x; int player_y;
-
-// }
-
-// void draw_minimap(t_data *data)
-// {
-// 	int x;
-// 	int y;
-
-// 	x = MAP_X;
-// 	while (x < MAP_X + MAP_W)
-// 	{
-// 		y = MAP_Y;
-// 		while (y < MAP_Y + MAP_H)
-// 		{
-// 			if (is_border(x, y))
-// 				pp(x, y, MAP_BORDER, &data->game_img);
-// 			// else if (is_wall(data ,data->coords.player.x,data->coords.player.y, x, y))
-// 			// 	pp(x, y, MAP_WALL, &data->game_img);
-// 			else
-// 				pp(x, y, MAP_COLOR, &data->game_img);
-// 			y++;
-// 		}
-// 		x++;
-// 	}
-// 	pp(MAP_X + (MAP_W / 2), MAP_Y + (MAP_H / 2), PLAYER_COLOR, &data->game_img);
-// }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_parse.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
+/*   By: achbira <achbira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 20:52:16 by ychagri           #+#    #+#             */
-/*   Updated: 2025/03/24 22:13:56 by ychagri          ###   ########.fr       */
+/*   Updated: 2025/04/15 11:50:28 by achbira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 # define GREEN "\x1B[32m"
 # define BLUE  "\x1B[34m"
 # define RESET "\x1B[0m"
-# define WIDTH	3000
+# define WIDTH	1920
 # define HEIGHT	1080
 
 # define TW 64
@@ -48,17 +48,19 @@
 # define MAP_Y 10
 # define MAP_W (WIDTH / 4)
 # define MAP_H (HEIGHT / 4)
+
+# define TILE_WIDTH 24
 // ######
 # define MAP_BORDER_SIZE 1
-# define MAP_BORDER 0x000000
+# define MAP_BORDER 0x306367
 
 #define FLOOR_COLOR  0x808080  // grey color
 
 # define MAP_COLOR 0x00000
-# define MAP_WALL 0x000000
+# define MAP_WALL 0x1F0E04
 
-# define PLAYER_COLOR 0xFFFFFFFF
-# define PLAYER_SIZE 10
+# define PLAYER_COLOR 0x800020
+# define PLAYER_SIZE 6
 
 
 
@@ -226,5 +228,6 @@ int		x_exit(t_data *data);
 int		key_release_hook(int keycode, t_data *data);
 int		key_press_hook(int keycode, t_data *data);
 
+void	draw_minimap(t_data *data);
 
 #endif
