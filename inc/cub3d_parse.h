@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_parse.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: achbira <achbira@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 20:52:16 by ychagri           #+#    #+#             */
-/*   Updated: 2025/04/15 11:50:28 by achbira          ###   ########.fr       */
+/*   Updated: 2025/04/23 18:06:59 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,6 @@
 # define WIDTH	1920
 # define HEIGHT	1080
 
-# define TW 64
-# define TH 64
-
 # define ARGNUM "\tInvalid number of arguments => ./cub3d *.cub."
 # define FILNAM "\tInvalid file name => ./cub3D *.cub"
 # define CONFERR "\tthe configuration file is misconfigured."
@@ -43,33 +40,7 @@
 # define BASE_ROTATION_SPEED 0.07
 
 
-// ######## MINI MAP params ###########
-# define MAP_X 10
-# define MAP_Y 10
-# define MAP_W (WIDTH / 4)
-# define MAP_H (HEIGHT / 4)
-
 # define TILE_WIDTH 24
-// ######
-# define MAP_BORDER_SIZE 1
-# define MAP_BORDER 0x306367
-
-#define FLOOR_COLOR  0x808080  // grey color
-
-# define MAP_COLOR 0x00000
-# define MAP_WALL 0x1F0E04
-
-# define PLAYER_COLOR 0x800020
-# define PLAYER_SIZE 6
-
-
-
-#define POINTER_SIZE 5   // Size of the arrowhead
-#define POINTER_LENGTH 10 // Length of the arrow
-
-
-// ####################################
-
 
 typedef struct s_img
 {
@@ -227,7 +198,5 @@ void	move_player(t_data *all);
 int		x_exit(t_data *data);
 int		key_release_hook(int keycode, t_data *data);
 int		key_press_hook(int keycode, t_data *data);
-
-void	draw_minimap(t_data *data);
 
 #endif
