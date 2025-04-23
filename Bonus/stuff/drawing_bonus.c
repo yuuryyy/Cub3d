@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   drawing_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: achbira <achbira@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 20:34:33 by achbira           #+#    #+#             */
-/*   Updated: 2025/04/16 10:56:46 by achbira          ###   ########.fr       */
+/*   Updated: 2025/04/23 17:46:01 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,3 +107,6 @@ void	create_world(t_data *all)
 	sprites(all, wall_dists, *p);
 	pp(WIDTH / 2, HEIGHT / 2, 0xFFFFFF, &all->game_img);
 }
+
+
+/// this is not included in bonux making TODO: 

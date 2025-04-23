@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: achbira <achbira@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 20:52:08 by ychagri           #+#    #+#             */
-/*   Updated: 2025/04/16 12:06:39 by achbira          ###   ########.fr       */
+/*   Updated: 2025/04/23 17:57:12 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ int	mouse_rot(int x, int y, void *arg)
 		mlx_mouse_move(data->mlx, data->window, WIDTH / 2, y);
 	return (a = x);
 }
+
 int main(int ac, char **av)
 {
 	t_data	data;

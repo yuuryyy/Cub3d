@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   controls.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: achbira <achbira@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 20:34:47 by achbira           #+#    #+#             */
-/*   Updated: 2025/04/15 11:28:33 by achbira          ###   ########.fr       */
+/*   Updated: 2025/04/23 17:41:52 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ void	use_legs(t_vect vec, int neo, t_player *p, t_data *all)
 	border = (float)1/16;
 	x = p->x + neo * vec.x * (all->move.mov_sped + border);
 	y = p->y + neo * vec.y * (all->move.mov_sped + border);
-	if (y > 0 && y < all->coords.height && all->map[(int)y][(int)p->x] < '1')
+	if (y > 0 && y < all->coords.height )
 		p->y = p->y + neo * vec.y * all->move.mov_sped;
-	if (x > 0 && x < all->coords.width && all->map[(int)p->y][(int)x] < '1')
+	if (x > 0 && x < all->coords.width )
 		p->x = p->x + neo * vec.x * all->move.mov_sped;
 }
 

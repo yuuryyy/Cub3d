@@ -14,37 +14,36 @@ HEADER	:= ./inc/cub3d_parse.h
 
 LIBRARY	:= lib/libft.a
 
-SRC		:=	parse/errors.c \
-			parse/file_check.c \
-			parse/tools.c \
-			parse/map_check.c \
-			parse/get_file_data.c \
-			parse/fill_sp.c \
-			parse.c \
-			stuff/controls.c \
-			stuff/game_loop.c \
-			stuff/init_stuff.c \
-			stuff/hookers.c \
-			stuff/rays_go_brrr.c \
-			stuff/tex_loading.c \
-			stuff/wall_textures.c \
-			stuff/niminap.c
+SRC		:=	Mandatory/parse/errors.c \
+			Mandatory/parse/file_check.c \
+			Mandatory/parse/tools.c \
+			Mandatory/parse/map_check.c \
+			Mandatory/parse/get_file_data.c \
+			Mandatory/parse/fill_sp.c \
+			Mandatory/cub.c \
+			Mandatory/stuff/controls.c \
+			Mandatory/stuff/game_loop.c \
+			Mandatory/stuff/init_stuff.c \
+			Mandatory/stuff/hookers.c \
+			Mandatory/stuff/rays_go_brrr.c \
+			Mandatory/stuff/tex_loading.c \
+			Mandatory/stuff/wall_textures.c \
 
-BNS		:= 	bonus/parse/errors_bonus.c \
-			bonus/parse/file_check_bonus.c \
-			bonus/parse/tools_bonus.c \
-			bonus/parse/map_check_bonus.c \
-			bonus/parse/get_file_data_bonus.c \
-			bonus/parse/fill_sp_bonus.c \
-			bonus/main_bonus.c \
-			bonus/stuff/controls_bonus.c \
-			bonus/stuff/game_loop_bonus.c \
-			bonus/stuff/init_stuff_bonus.c \
-			bonus/stuff/hookers_bonus.c \
-			bonus/stuff/rays_go_brrr_bonus.c \
-			bonus/stuff/tex_loading_bonus.c \
-			bonus/stuff/wall_textures_bonus.c \
-			bonus/stuff/niminap_bonus.c
+BNS		:= 	Bonus/parse/errors_bonus.c \
+			Bonus/parse/file_check_bonus.c \
+			Bonus/parse/tools_bonus.c \
+			Bonus/parse/map_check_bonus.c \
+			Bonus/parse/get_file_data_bonus.c \
+			Bonus/parse/fill_sp_bonus.c \
+			Bonus/main_bonus.c \
+			Bonus/stuff/controls_bonus.c \
+			Bonus/stuff/game_loop_bonus.c \
+			Bonus/stuff/init_stuff_bonus.c \
+			Bonus/stuff/hookers_bonus.c \
+			Bonus/stuff/rays_go_brrr_bonus.c \
+			Bonus/stuff/tex_loading_bonus.c \
+			Bonus/stuff/wall_textures_bonus.c \
+			Bonus/stuff/niminap_bonus.c
 			
 BOBG	:= $(BNS:.c=.o)
 		

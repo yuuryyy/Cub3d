@@ -1,9 +1,21 @@
-#include "cub3d_bonus.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   niminap_bonus.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/23 17:55:50 by ychagri           #+#    #+#             */
+/*   Updated: 2025/04/23 17:56:33 by ychagri          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
+#include "cub3d_bonus.h"
 
 bool is_border(int x, int y)
 {
-	return (x <= MAP_X + MAP_BORDER_SIZE || x >= MAP_X + MAP_W - MAP_BORDER_SIZE || y <= MAP_Y + MAP_BORDER_SIZE || y >= MAP_Y + MAP_H - MAP_BORDER_SIZE);
+	return (x <= MAP_X + MAP_BORDER_SIZE || x >= MAP_X + MAP_W - MAP_BORDER_SIZE
+			|| y <= MAP_Y + MAP_BORDER_SIZE || y >= MAP_Y + MAP_H - MAP_BORDER_SIZE);
 }
  
 void	draw_player_on_minimap(t_data *data)
@@ -19,22 +31,7 @@ void	draw_player_on_minimap(t_data *data)
 	{
 		for (int j = 0; j < PLAYER_SIZE; j++)
 			pp(MAP_X + x + i, MAP_Y + y + j, PLAYER_COLOR, &data->game_img);
-	}	
-	// float a;
-	// float b;
-
-	// a = data->coords.player.x + 6 * (float)data->coords.width / MAP_W * data->coords.player.dir.x;
-	// b = data->coords.player.y + 6 * (float)data->coords.width / MAP_W * data->coords.player.dir.y;
-	// x = MAP_X + (MAP_W * a / data->coords.width) - (PLAYER_SIZE / 2);
-	// y = MAP_Y + (MAP_H * b / data->coords.height) - (PLAYER_SIZE / 2);
-	
-	// for (int i = 0; i < PLAYER_SIZE; i++)
-	// {
-	// 	for (int j = 0; j < PLAYER_SIZE; j++)
-	// 	{
-	// 		pp(x + i, y + j, 0xff0000, &data->game_img);
-	// 	}
-	// }
+	}
 }
 
 int	is_wall(t_data *data, int x, int y)
@@ -89,32 +86,3 @@ void	draw_minimap(t_data *data)
 	draw_player_on_minimap(data);
 }
 
-// bool is_wall(t_data *data, int x, int y)
-// {
-// 	int player_x; int player_y;
-
-// }
-
-// void draw_minimap(t_data *data)
-// {
-// 	int x;
-// 	int y;
-
-// 	x = MAP_X;
-// 	while (x < MAP_X + MAP_W)
-// 	{
-// 		y = MAP_Y;
-// 		while (y < MAP_Y + MAP_H)
-// 		{
-// 			if (is_border(x, y))
-// 				pp(x, y, MAP_BORDER, &data->game_img);
-// 			// else if (is_wall(data ,data->coords.player.x,data->coords.player.y, x, y))
-// 			// 	pp(x, y, MAP_WALL, &data->game_img);
-// 			else
-// 				pp(x, y, MAP_COLOR, &data->game_img);
-// 			y++;
-// 		}
-// 		x++;
-// 	}
-// 	pp(MAP_X + (MAP_W / 2), MAP_Y + (MAP_H / 2), PLAYER_COLOR, &data->game_img);
-// }

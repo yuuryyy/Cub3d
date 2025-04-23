@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_loop.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: achbira <achbira@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 03:09:10 by achbira           #+#    #+#             */
-/*   Updated: 2025/04/15 11:48:16 by achbira          ###   ########.fr       */
+/*   Updated: 2025/04/23 17:40:10 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ int	game_loop(void *arg)
 	move_player(data);
 	
 	create_world(data);
-	draw_minimap(data);
 	mlx_put_image_to_window(data->mlx, data->window, data->game_img.img, 0, 0);
 	
 	return (0);
