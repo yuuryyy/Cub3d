@@ -1,14 +1,14 @@
 NO	./textures/purplegeometric.xpm
 SO	./textures/bw_seamless.xpm
-WE	./textures/tes2.xpm
-EA	./textures/test.xpm
+      WE	./textures/tes2.xpm
+EA 	./textures/tes2.xpm
 
 F 0,0,0
 C 225,0000255,255
         
         1111111111111111111111111
         1000000000110000010100001
-        1000000000110000011100001
+        10000000001 10000011100001
         1011000001110000000000001
         100100000000000000N000001
 111111111111111111111111111111111

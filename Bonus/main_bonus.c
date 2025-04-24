@@ -6,13 +6,13 @@
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 20:52:08 by ychagri           #+#    #+#             */
-/*   Updated: 2025/04/24 16:09:02 by ychagri          ###   ########.fr       */
+/*   Updated: 2025/04/24 22:34:40 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
 
-void	use_hips2(float angle, t_player *p)
+void	use_hips2(float angle, t_player *p) 
 {
 	float oldx = p->dir.x;
 

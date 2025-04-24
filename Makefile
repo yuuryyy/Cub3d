@@ -60,10 +60,10 @@ $(NAME) : $(OBG) libft
 $(BONUS) : $(BOBG) libft ./inc/cub3d_bonus.h
 	 $(CC)  $(CFLAGS) $(BOBG) $(MINUX) $(LIBRARY) -o $(BONUS)
 
-%_bonus.o : %_bonus.c ./inc/cub3d_bonus.h
+%_bonus.o : %_bonus.c ./inc/cub3d_bonus.h ./inc/g_header.h
 	$(CC) $(CFLAGS)  -I/usr/include -Imlx_linux -O3 -c $< -o $@
 
-%.o : %.c $(HEADER)
+%.o : %.c $(HEADER) ./inc/g_header.h
 	 $(CC) $(CFLAGS)  -I/usr/include -Imlx_linux -O3 -c $< -o $@
 
 bonus : $(BONUS)

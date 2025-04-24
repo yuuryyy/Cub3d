@@ -6,7 +6,7 @@
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 02:25:13 by ychagri           #+#    #+#             */
-/*   Updated: 2025/04/24 18:17:45 by ychagri          ###   ########.fr       */
+/*   Updated: 2025/04/24 21:20:23 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,22 +88,26 @@ int	is_texture(char *line, t_textures *texture)
 {
 	int	i;
 
-	if (!line)
-		return (0);
-	i = 0;
-	while (line[i] && (line[i] == ' ' || line[i] == '\t'))
-		i++;
-	if (!ft_strncmp(&line[i], "NO ", 3) || !ft_strncmp(&line[i], "NO\t", 3))
+	i = -1;
+	while (line && line[++i] && (line[i] == ' ' || line[i] == '\t'))
+		;
+	if ((!ft_strncmp(&line[i], NO, 3) || !ft_strncmp(&line[i], NOT, 3))
+		&& !texture->no_txtr)
 		return (texture->no_txtr = ft_strdup(line), 1);
-	else if (!ft_strncmp(&line[i], "SO ", 3) || !ft_strncmp(&line[i], "SO\t", 3))
+	else if ((!ft_strncmp(&line[i], SO, 3) || !ft_strncmp(&line[i], SOT, 3))
+		&& !texture->so_txtr)
 		return (texture->so_txtr = ft_strdup(line), 1);
-	else if (!ft_strncmp(&line[i], "WE ", 3) || !ft_strncmp(&line[i], "WE\t", 3))
+	else if ((!ft_strncmp(&line[i], WE, 3) || !ft_strncmp(&line[i], WET, 3))
+		&& !texture->we_txtr)
 		return (texture->we_txtr = ft_strdup(line), 1);
-	else if (!ft_strncmp(&line[i], "EA ", 3) || !ft_strncmp(&line[i], "EA\t", 3))
+	else if ((!ft_strncmp(&line[i], EA, 3) || !ft_strncmp(&line[i], EAT, 3))
+		&& !texture->ea_txtr)
 		return (texture->ea_txtr = ft_strdup(line), 1);
-	else if (!ft_strncmp(&line[i], "F ", 2) || !ft_strncmp(&line[i], "F\t", 2))
+	else if ((!ft_strncmp(&line[i], F, 2) || !ft_strncmp(&line[i], FT, 2))
+		&& !texture->f_color)
 		return (texture->f_color = ft_strdup(line), 1);
-	else if (!ft_strncmp(&line[i], "C ", 2) || !ft_strncmp(&line[i], "C\t", 2))
+	else if ((!ft_strncmp(&line[i], C, 2) || !ft_strncmp(&line[i], CT, 2))
+		&& !texture->c_color)
 		return (texture->c_color = ft_strdup(line), 1);
 	return (0);
 }

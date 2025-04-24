@@ -6,43 +6,14 @@
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 20:52:16 by ychagri           #+#    #+#             */
-/*   Updated: 2025/04/24 18:16:27 by ychagri          ###   ########.fr       */
+/*   Updated: 2025/04/24 22:16:25 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_PARSE_H
 # define CUB3D_PARSE_H
 
-# include "../lib/Libft/libft.h"
-# include <stdlib.h>
-# include <stdio.h>
-# include <unistd.h>
-# include <stdbool.h>
-# include <math.h>
-# include <mlx.h>
-
-
-# define RED   "\x1B[31m"
-# define GREEN "\x1B[32m"
-# define BLUE  "\x1B[34m"
-# define RESET "\x1B[0m"
-# define WIDTH	1920
-# define HEIGHT	1080
-
-# define ARGNUM "\tInvalid number of arguments => ./cub3d *.cub."
-# define FILNAM "\tInvalid file name => ./cub3D *.cub"
-# define CE "\tthe configuration file is misconfigured."
-# define EMPTYLN "\tthe map containts empty lines!"
-# define PCONFLCT "\tA conflict in player's start position!"
-# define CHARR "\tInvalid characters !!"
-# define OPNMP "\tUnclosed map!"
-
-
-# define BASE_SPEED 0.06
-# define BASE_ROTATION_SPEED 0.07
-
-
-# define TILE_WIDTH 24
+#include "g_header.h"
 
 typedef struct s_img
 {
