@@ -6,7 +6,7 @@
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 04:57:26 by ychagri           #+#    #+#             */
-/*   Updated: 2025/04/24 18:37:04 by ychagri          ###   ########.fr       */
+/*   Updated: 2025/04/24 19:08:23 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,5 @@ t_position	player_pos(char c)
 		return (north);
 	else if (c == 'E')
 		return (east);
-	return(0);
+	return (0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hookers_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: achbira <achbira@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 20:34:40 by achbira           #+#    #+#             */
-/*   Updated: 2025/04/16 10:15:00 by achbira          ###   ########.fr       */
+/*   Updated: 2025/04/24 19:15:23 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@ int	x_exit(t_data *data)
 {
 	mlx_destroy_window(data->mlx, data->window);
 	free_data(data);
-	return (exit (0), 0);
+	return (exit(0), 0);
 }
 
-void close_open_door(t_data *data, t_vect door)
+void	close_open_door(t_data *data, t_vect door)
 {
 	if (door.x != -1)
 	{
-		if (data->map[(int)door.y][(int)door.x] == '2')	
+		if (data->map[(int)door.y][(int)door.x] == '2')
 			data->map[(int)door.y][(int)door.x] = '3';
 		else
 			data->map[(int)door.y][(int)door.x] = '2';

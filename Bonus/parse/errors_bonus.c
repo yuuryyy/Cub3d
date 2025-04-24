@@ -6,7 +6,7 @@
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 21:03:27 by ychagri           #+#    #+#             */
-/*   Updated: 2025/04/24 18:36:34 by ychagri          ###   ########.fr       */
+/*   Updated: 2025/04/24 19:03:50 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ bool	is_empty(char *line)
 
 void	destroy_textures(t_data *data)
 {
-	int i;
+	int	i;
 
 	i = -1;
 	if (data->ready_tex.no_txtr.img.img)
