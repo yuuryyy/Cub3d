@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_file_data_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: achbira <achbira@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 01:30:34 by ychagri           #+#    #+#             */
-/*   Updated: 2025/04/24 23:46:16 by achbira          ###   ########.fr       */
+/*   Updated: 2025/04/25 00:49:20 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ int	check_textures(t_data *data, t_list *content)
 	return (0);
 }
 
+
 int	get_color(char *color)
 {
 	char	**split;
@@ -86,6 +87,17 @@ int	get_color(char *color)
 	int		g;
 	int		b;
 
+	g = -1;
+	r = 0;
+	while (color && color[++g])
+	{
+		if (color[g] == ',')
+			r++;
+		if (g > 0 && (color[g] == ',' && color[g - 1] == ','))
+			return (-1);
+	}
+	if (r != 2)
+		return (-1);
 	split = ft_split(color, ',');
 	if (!split)
 		return (error("\tmalloc failed"), -1);
@@ -114,5 +126,7 @@ int	get_data(t_data *data, char **av)
 		return (free_data(data), error("Failed to get the map"), 1);
 	data->colors.c_color = get_color(data->textures->c_color);
 	data->colors.f_color = get_color(data->textures->f_color);
+	if (data->colors.c_color == -1 || data->colors.f_color == -1)
+		return (free_data(data), error(CE), 1);
 	return (0);
 }
