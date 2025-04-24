@@ -6,7 +6,7 @@
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 20:52:16 by ychagri           #+#    #+#             */
-/*   Updated: 2025/04/24 18:16:27 by ychagri          ###   ########.fr       */
+/*   Updated: 2025/04/24 18:33:22 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,8 @@
 # define CE "\tthe configuration file is misconfigured."
 # define EMPTYLN "\tthe map containts empty lines!"
 # define PCONFLCT "\tA conflict in player's start position!"
-
+# define CHARR "\tInvalid characters !!"
+# define OPNMP "\tUnclosed map!"
 
 # define BASE_SPEED 0.06
 # define BASE_ROTATION_SPEED 0.07

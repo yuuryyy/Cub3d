@@ -6,7 +6,7 @@
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 01:30:34 by ychagri           #+#    #+#             */
-/*   Updated: 2025/04/24 18:16:27 by ychagri          ###   ########.fr       */
+/*   Updated: 2025/04/24 18:55:20 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ char	*valid_color(char *color)
 			if (split[i][k] > '9' || split[i][k] < '0')
 				return (error(CE), free_array(split), free(textr), NULL);
 		}
-		if (k > 3 || k < 1 || ft_atoi(split[i]) > 255 || ft_atoi(split[i]) < 0)
+		if (k < 1 || ft_atoi(split[i]) > 255 || ft_atoi(split[i]) < 0)
 			return (error(CE), free_array(split), free(textr), NULL);
 	}
 	free_array(split);

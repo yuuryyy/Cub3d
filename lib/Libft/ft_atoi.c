@@ -6,7 +6,7 @@
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 16:58:56 by ychagri           #+#    #+#             */
-/*   Updated: 2024/03/11 01:35:56 by ychagri          ###   ########.fr       */
+/*   Updated: 2025/04/24 18:56:17 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,8 @@ int	ft_atoi(char *str)
 	{
 		temp = res;
 		res = res * 10 + (str[i++] - '0');
-		if (temp != res / 10 && sign == 1)
+		if (temp != res / 10)
 			return (-1);
-		else if (temp != res / 10 && sign == -1)
-			return (0);
 	}
 	return (res * sign);
 }
