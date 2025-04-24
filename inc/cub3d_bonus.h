@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: achbira <achbira@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 20:52:16 by ychagri           #+#    #+#             */
-/*   Updated: 2025/04/24 12:45:35 by achbira          ###   ########.fr       */
+/*   Updated: 2025/04/24 18:16:27 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@
 
 # define ARGNUM "\tInvalid number of arguments => ./cub3d *.cub."
 # define FILNAM "\tInvalid file name => ./cub3D *.cub"
-# define CONFERR "\tthe configuration file is misconfigured."
+# define CE "\tthe configuration file is misconfigured."
 # define EMPTYLN "\tthe map containts empty lines!"
 # define PCONFLCT "\tA conflict in player's start position!"
 

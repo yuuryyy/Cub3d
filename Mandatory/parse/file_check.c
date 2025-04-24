@@ -6,7 +6,7 @@
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 02:25:13 by ychagri           #+#    #+#             */
-/*   Updated: 2025/03/22 02:07:01 by ychagri          ###   ########.fr       */
+/*   Updated: 2025/04/24 18:17:45 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,20 +36,6 @@ t_list	*get_file_content(char *filename)
 	if (!content)
 		return (error("Empty file content"), NULL);
 	return (content);
-}
-
-bool	is_empty(char *line)
-{
-	int	i;
-
-	i = 0;
-	if (!line || !*line || *line == '\n')
-		return (true);
-	while (line[i] == ' ' || line[i] == '\t')
-		i++;
-	if (line[i] && line[i] != '\n')
-		return (false);
-	return (true);
 }
 
 t_list	*index_map(t_list *content)
@@ -137,16 +123,16 @@ int	get_textures(t_list *content, t_data *data)
 		if (is_empty(tmp->content))
 		{
 			tmp = tmp->next;
-			continue;
+			continue ;
 		}
 		err = is_texture(tmp->content, data->textures);
 		if (err)
 			texture_num--;
 		else if (!err && texture_num != 0)
-			break;
+			break ;
 		tmp = tmp->next;
 	}
 	if (texture_num != 0)
-		return (free_data(data), ft_lstclear(&content, free_del), error(CONFERR), 1);
+		return (free_data(data), ft_lstclear(&content, free_del), error(CE), 1);
 	return (0);
 }

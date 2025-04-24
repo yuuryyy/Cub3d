@@ -6,7 +6,7 @@
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 23:55:30 by ychagri           #+#    #+#             */
-/*   Updated: 2025/04/24 15:51:18 by ychagri          ###   ########.fr       */
+/*   Updated: 2025/04/24 18:23:41 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	destroy_all_textures(t_ready_tex *textures, void *mlx)
 void	load_texture(t_data *data, t_loaded_tex *tex, void *mlx, char *file)
 {
 	tex->img.img = mlx_xpm_file_to_image(mlx, file, &tex->width, &tex->height);
-	if (!tex->img.img) // destroy raycasting data TODO:
+	if (!tex->img.img)
 	{
 		free_data(data);
 		destroy_all_textures(&data->ready_tex, data->mlx);
@@ -55,7 +55,6 @@ void	load_texture(t_data *data, t_loaded_tex *tex, void *mlx, char *file)
 
 void	load_all_textures(t_ready_tex *textures, void *mlx, t_data *data)
 {
-	// printf("Loading textures\n");
 	load_texture(data, &textures->no_txtr, mlx, data->textures->no_txtr);
 	load_texture(data, &textures->so_txtr, mlx, data->textures->so_txtr);
 	load_texture(data, &textures->ea_txtr, mlx, data->textures->ea_txtr);

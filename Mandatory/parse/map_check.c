@@ -6,7 +6,7 @@
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 19:06:26 by ychagri           #+#    #+#             */
-/*   Updated: 2024/12/15 22:52:49 by ychagri          ###   ########.fr       */
+/*   Updated: 2025/04/24 18:09:39 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ int	trim_map(t_data *data, char **map)
 	return (0);
 }
 
-
 bool	space_check(char *line1, char *line2)
 {
 	int		i;
@@ -69,7 +68,6 @@ bool	space_check(char *line1, char *line2)
 			return (false);
 		i++;
 	}
-	// printf("%s\n", line2);
 	if (!line1[i] && !line2[i])
 		return (true);
 	else if (!line1[i])
@@ -89,12 +87,11 @@ bool	check_walls(t_data *data, char **map)
 {
 	size_t		i;
 	int			k;
-	char	*tmp;
+	char		*tmp;
 
 	i = -1;
 	while (map[++i])
 	{
-		// printf("%s\n", map[i]);
 		if (space_check(map[i], map[i + 1]) == false)
 			return (free_data(data), error("\tWhite space unclosed!!"), false);
 		tmp = ft_strtrim(map[i], " ");
@@ -104,12 +101,12 @@ bool	check_walls(t_data *data, char **map)
 			while (tmp[k])
 			{
 				if (tmp[k] != '1' && tmp[k] != ' ')
-					return (free(tmp), free_data(data),error("\tUnclosed map!"),false);
+					return (free(tmp), free_data(data), error(OPNMP), false);
 				k++;
 			}
 		}
 		else if (tmp[0] != '1' || tmp[ft_strlen(tmp) - 1] != '1')
-			return (free(tmp), free_data(data),error("\tUnclosed map"),false);
+			return (free(tmp), free_data(data), error(OPNMP), false);
 		free(tmp);
 	}
 	return (true);
@@ -125,17 +122,5 @@ int	check_data(t_data *data, char **av)
 	if (!check_walls(data, data->map) || !map_content_check(data, data->map))
 		return (1);
 	rect_map(data->map, data);
-	// tmp = expand_inpath(data);
-	// if (!tmp)
-	// 	return (1);
-	// i = -1;
-	// while (tmp[++i])
-	// {
-	// 	printf("%s\n", tmp[i]);
-	// 	k = -1;
-	// 	while (tmp[i][++k])
-	// 		if (tmp[i][k] != '1' && tmp[i][k] != 'x')
-	// 			return (free_array(tmp),free_data(data), error("\tInvalid path."), 1);
-	// }
 	return (0);
 }

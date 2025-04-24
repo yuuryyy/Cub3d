@@ -6,11 +6,20 @@
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 19:30:00 by ychagri           #+#    #+#             */
-/*   Updated: 2025/03/23 13:33:36 by ychagri          ###   ########.fr       */
+/*   Updated: 2025/04/24 18:00:53 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_parse.h"
+
+bool	get_coords(t_data *data, int i, int k, char **map)
+{
+	data->coords.player.pos = player_pos(map[i][k]);
+	data->coords.player.x = k;
+	data->coords.player.y = i;
+	map[i][k] = '0';
+	return (true);
+}
 
 bool	map_content_check(t_data *data, char **map)
 {
@@ -20,23 +29,20 @@ bool	map_content_check(t_data *data, char **map)
 
 	pos = false;
 	i = -1;
-	while(map[++i])
+	while (map[++i])
 	{
 		k = -1;
 		while (map[i][++k])
 		{
-			if (map[i][k] == 'W' || map[i][k] == 'S' || map[i][k] == 'N' || map[i][k] == 'E')
+			if (map[i][k] == 'W' || map[i][k] == 'S'
+					|| map[i][k] == 'N' || map[i][k] == 'E')
 			{
 				if (pos)
 					return (error(PCONFLCT), free_data(data), false);
-				pos = true;
-				data->coords.player.pos = player_pos(map[i][k]);
-				data->coords.player.x = k;
-				data->coords.player.y = i;
-				map[i][k] = '0';
+				pos = get_coords(data, i, k, map);
 			}
 			else if (map[i][k] != ' ' && map[i][k] != '1' && map[i][k] != '0')
-				return (error("\tInvalid characters !!"), free_data(data), false);
+				return (error(CHARR), free_data(data), false);
 		}
 	}
 	if (!pos)
@@ -89,39 +95,3 @@ void	rect_map(char **map, t_data *data)
 			map[i] = fill_wall(map[i], data->coords.width, data);
 	}
 }
-
-// void	path(char **map, t_map size, size_t x, size_t y)
-// {
-// 	if (x < 0 || x >= size.width || y < 0 || y >= size.height
-// 		|| map[y][x] == '1' || map[y][x] == 'x')
-// 		return ;
-// 	map[y][x] = 'x';
-// 	path(map, size, x - 1, y);
-// 	path(map, size, x + 1, y);
-// 	path(map, size, x, y - 1);
-// 	path(map, size, x, y + 1);
-// }
-
-// char	**expand_inpath(t_data *data)
-// {
-// 	char	**tmp;
-// 	int		i;
-// 	int		k;
-
-// 	tmp = ft_calloc((data->coords.height + 1) , sizeof(char *));
-// 	if (!tmp)
-// 		return (free_data(data), error("\tmalloc failed."), NULL);
-// 	i = -1;
-// 	while (data->map[++i])
-// 	{
-// 		k = -1;
-// 		tmp[i] = ft_calloc(ft_strlen(data->map[i]) + 1, sizeof(char));
-// 		if (!tmp[i])
-// 			return (free_array(tmp),free_data(data), error("\tmalloc failed."), NULL);
-// 		while (data->map[i][++k])
-// 			tmp[i][k] = data->map[i][k];
-// 		tmp[i][k] = 0;
-// 	}
-// 	path(tmp, data->coords, data->coords.player.x, data->coords.player.y);
-// 	return (tmp);
-// }

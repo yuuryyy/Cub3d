@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_file_data.c                                    :+:      :+:    :+:   */
+/*   get_file_data_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: achbira <achbira@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 01:30:34 by ychagri           #+#    #+#             */
-/*   Updated: 2025/04/15 18:15:38 by achbira          ###   ########.fr       */
+/*   Updated: 2025/04/24 18:16:27 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*valid_txtr(char *texture)
 
 	str = ft_strchr(texture, ' ', '\t');
 	if (!str || is_empty(str))
-		return (error(CONFERR), NULL);
+		return (error(CE), NULL);
 	tmp = ft_strtrim(str, " \t\n");
 	free(texture);
 	return (tmp);
@@ -38,7 +38,7 @@ char	*valid_color(char *color)
 	if (!split)
 		return (error("\tmalloc failed"), NULL);
 	if (array_len(split) != 3)
-		return (error(CONFERR), free_array(split), NULL);
+		return (error(CE), free_array(split), NULL);
 	i = -1;
 	while (split[++i])
 	{
@@ -46,10 +46,10 @@ char	*valid_color(char *color)
 		while (split[i][++k])
 		{
 			if (split[i][k] > '9' || split[i][k] < '0')
-				return (error(CONFERR), free_array(split), NULL);
+				return (error(CE), free_array(split), NULL);
 		}
 		if (k > 3 || k < 1 || ft_atoi(split[i]) > 255 || ft_atoi(split[i]) < 0)
-			return (error(CONFERR), free_array(split), NULL);
+			return (error(CE), free_array(split), NULL);
 	}
 	free_array(split);
 	return (textr);

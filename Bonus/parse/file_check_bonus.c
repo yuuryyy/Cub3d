@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   file_check.c                                       :+:      :+:    :+:   */
+/*   file_check_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: achbira <achbira@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 02:25:13 by ychagri           #+#    #+#             */
-/*   Updated: 2025/04/15 18:15:38 by achbira          ###   ########.fr       */
+/*   Updated: 2025/04/24 18:16:27 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -147,6 +147,6 @@ int	get_textures(t_list *content, t_data *data)
 		tmp = tmp->next;
 	}
 	if (texture_num != 0)
-		return (free_data(data), ft_lstclear(&content, free_del), error(CONFERR), 1);
+		return (free_data(data), ft_lstclear(&content, free_del), error(CE), 1);
 	return (0);
 }
