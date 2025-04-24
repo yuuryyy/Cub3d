@@ -6,7 +6,7 @@
 /*   By: achbira <achbira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 20:34:33 by achbira           #+#    #+#             */
-/*   Updated: 2025/04/16 13:33:04 by achbira          ###   ########.fr       */
+/*   Updated: 2025/04/24 15:13:10 by achbira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,20 +88,19 @@ void	i_see_ded_ppl(t_data *data, float *dists, t_sprite s)
 	int	y;
 	
 	x = s.start_x - 1;
+	printf("%f\n", data->sprite_idx);
 	while (++x < s.end_x)
 	{
-		s.tx = ((x - (s.screenx - s.w / 2)) * s.texpm.width / s.w);
+		s.tx = ((x - (s.screenx - s.w / 2)) * s.texpm[(int)data->sprite_idx].width / s.w);
 		if (s.yproj < 0 || (int)s.yproj > (int)dists[x])
-		{
 			continue ;
-		}
 		y = s.start_y - 1;
 		while (++y < s.end_y)
 		{
 			d = y - s.start_y;
-			s.ty = (d * s.texpm.height) / s.h;
+			s.ty = (d * s.texpm[(int)data->sprite_idx].height) / s.h;
 			if (!(s.tx < 0 || s.tx > 64 ||s.ty < 0 || s.ty > 64))
-				color = s.texpm.img.pixs[s.ty * s.texpm.width + s.tx];
+				color = ((int *)s.texpm[(int)data->sprite_idx].img.addr)[s.ty * s.texpm[(int)data->sprite_idx].width + s.tx];
 			else 
 				color = 0;
 			if((color & 0x00ffff) != 0)
@@ -146,6 +145,7 @@ void	create_world(t_data *all)
 	float		wall_dists[WIDTH + 1];
 
 	p = &all->coords.player;
+	p->target_door.x = -1;
 	x = -1;
 	while (++x < WIDTH)
 	{
@@ -164,8 +164,10 @@ void	create_world(t_data *all)
 		}
 	}
 
-	all->sprites.x = 26.4;
-	all->sprites.y = 1;
+	all->sprites.x = 26.5;
+	all->sprites.y = 1.3;
+	if ((int)p->x == (int)all->sprites.x && (int)p->y == (int)all->sprites.y)
+		x_exit(all);
 	sprites(all, wall_dists, *p);
 	pp(WIDTH / 2, HEIGHT / 2, 0xFFFFFF, &all->game_img);
 }

@@ -6,7 +6,7 @@
 /*   By: achbira <achbira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 20:52:16 by ychagri           #+#    #+#             */
-/*   Updated: 2025/04/16 10:46:49 by achbira          ###   ########.fr       */
+/*   Updated: 2025/04/24 12:45:35 by achbira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -189,7 +189,7 @@ typedef struct s_sprite
 {
 	float	x;	
 	float	y;
-	t_loaded_tex	texpm;
+	t_loaded_tex	texpm[20];
 	int		screenx;
 	float	xproj;
 	float	yproj;
@@ -220,6 +220,7 @@ typedef struct s_data
 	t_ready_tex	ready_tex;
 
 	t_sprite	sprites;
+	float	sprite_idx;
 }	t_data;
 
 void		create_world(t_data *all);

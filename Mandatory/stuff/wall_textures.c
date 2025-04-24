@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   wall_textures.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
+/*   By: achbira <achbira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 03:48:48 by ychagri           #+#    #+#             */
-/*   Updated: 2025/04/23 17:39:27 by ychagri          ###   ########.fr       */
+/*   Updated: 2025/04/24 14:39:33 by achbira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "cub3d_parse.h"
+#include "cub3d_parse.h"
 
 int	get_tex_x(t_ray *r, t_loaded_tex *tex, float wall_x)
 {
@@ -40,8 +40,8 @@ int	draw_wall_stripe(t_ray *r, t_data *all, int x, t_loaded_tex *tex)
 		if (tex_y >= tex->height)
 			tex_y = tex->height - 1;
 		tex_pos += step;
-		r->color = *(unsigned int *)(tex->img.addr +
-				(tex_y * tex->img.line_length +
+		r->color = *(unsigned int *)(tex->img.addr + \
+				(tex_y * tex->img.line_length + \
 					tex_x * (tex->img.bits_per_pixel / 8)));
 		pp(x, y, r->color, &all->game_img);
 	}

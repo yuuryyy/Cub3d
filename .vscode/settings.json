@@ -14,6 +14,7 @@
 		"initializer_list": "c",
 		"span": "c",
 		"text_encoding": "c",
-		"math.h": "c"
+		"math.h": "c",
+		"cub3d_bonus.h": "c"
 	}
 }

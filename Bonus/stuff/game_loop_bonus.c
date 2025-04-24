@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   game_loop.c                                        :+:      :+:    :+:   */
+/*   game_loop_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: achbira <achbira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 03:09:10 by achbira           #+#    #+#             */
-/*   Updated: 2025/04/15 18:15:38 by achbira          ###   ########.fr       */
+/*   Updated: 2025/04/24 15:01:01 by achbira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,11 @@ int	game_loop(void *arg)
 	data = arg;
 	if (clear_canvas(data))
 		x_exit(data);
+	data->sprite_idx += 0.5;
+	if (data->sprite_idx > 18)
+		data->sprite_idx = 0;
 	
+
 	move_player(data);
 	
 	create_world(data);

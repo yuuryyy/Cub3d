@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tools.c                                            :+:      :+:    :+:   */
+/*   tools_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: achbira <achbira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 04:57:26 by ychagri           #+#    #+#             */
-/*   Updated: 2025/04/15 18:15:38 by achbira          ###   ########.fr       */
+/*   Updated: 2025/04/24 15:23:30 by achbira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,11 @@ void	free_data(t_data *data)
 			mlx_destroy_image(data->mlx, data->ready_tex.we_txtr.img.img);
 		if(data->ready_tex.ea_txtr.img.img)
 			mlx_destroy_image(data->mlx, data->ready_tex.ea_txtr.img.img);
+
+		int i = -1;
+		while (++i < 19)
+			if (data->sprites.texpm[i].img.img)
+				mlx_destroy_image(data->mlx, data->sprites.texpm[i].img.img);
 
 		if(data->textures->no_txtr)
 			free_del(data->textures->no_txtr);

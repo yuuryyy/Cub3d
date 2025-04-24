@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   niminap_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
+/*   By: achbira <achbira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 17:55:50 by ychagri           #+#    #+#             */
-/*   Updated: 2025/04/23 17:56:33 by ychagri          ###   ########.fr       */
+/*   Updated: 2025/04/24 15:21:29 by achbira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,11 @@ int	is_wall(t_data *data, int x, int y)
 		return (0x45472F);
 	else if (data->map[map_y][map_x] == '1')
 		return (MAP_WALL);
-	else	
+	else if (data->map[map_y][map_x] == '2')
+		return (0x850020);
+	else if (data->map[map_y][map_x] == '3')
+		return (0x850020 / 2);
+	else
 		return (FLOOR_COLOR);
 }
 
@@ -54,12 +58,32 @@ float	get_dist(float x, float y,float x1, float y1)
 	return (sqrt((x - x1) * (x - x1) + (y - y1) * (y - y1)));
 }
 
+int	is_on_tile_border(int	x, float px)
+{
+	return ((x + (int)(px * TILE_WIDTH)) % TILE_WIDTH);
+}
+
+int	paint_map(t_data *data, t_player p, int x, int y)
+{
+	float circle;
+
+	circle = get_dist(x, y, 7 * TILE_WIDTH, 7 * TILE_WIDTH);
+	if (circle > 7 * TILE_WIDTH && ++y)
+		return (-1);
+	else if (circle == 7 * TILE_WIDTH) // map border
+		return (MAP_BORDER);
+	else if (!is_on_tile_border(x, p.x) || !is_on_tile_border(y, p.y)) // tiles' square borders 
+		return (MAP_BORDER);
+	else
+		return (is_wall(data, p.x + (float)x / TILE_WIDTH, p.y + (float)y / TILE_WIDTH));
+}
+
 void	draw_minimap(t_data *data)
 {
-	int	x;
-	int	y;
-	int	color;
-	t_player p;
+	int			x;
+	int			y;
+	int			color;
+	t_player	p;
 
 	p = data->coords.player;
 	p.x -= 7;
@@ -70,19 +94,11 @@ void	draw_minimap(t_data *data)
 		y = -1;
 		while (++y <= 15 * TILE_WIDTH)
 		{
-			float circle;
-			circle = get_dist(x, y, 7 * TILE_WIDTH, 7 * TILE_WIDTH);
-			if (circle > 7 * TILE_WIDTH && ++y)
-				continue;
-			else if (circle == 7 * TILE_WIDTH) // map border 
-				color = MAP_BORDER;
-			else if (!((x + (int)(p.x*TILE_WIDTH))%TILE_WIDTH) || !((y + (int)(p.y*TILE_WIDTH))%TILE_WIDTH)) // tiles' square borders 
-				color = MAP_BORDER;
-			else
-				color = is_wall(data, floor(p.x + (float)x / TILE_WIDTH), floor(p.y + (float)y / TILE_WIDTH));
+			color = paint_map(data, p, x, y);
+			if (color == -1)
+				continue ;
 			pp(MAP_X + x, MAP_Y + y, color, &data->game_img);
 		}
 	}
 	draw_player_on_minimap(data);
 }
-
