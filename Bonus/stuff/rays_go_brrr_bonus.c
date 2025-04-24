@@ -6,7 +6,7 @@
 /*   By: achbira <achbira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 20:34:33 by achbira           #+#    #+#             */
-/*   Updated: 2025/04/25 00:08:55 by achbira          ###   ########.fr       */
+/*   Updated: 2025/04/25 00:36:59 by achbira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,6 @@ void	sprites_distances(t_data *data, t_player p)
 	sort_arr(data);
 }
 
-
-
 void	create_world(t_data *data)
 {
 	t_player	*p;
@@ -101,7 +99,5 @@ void	create_world(t_data *data)
 	data->sprites[1].x = 30.5;
 	data->sprites[1].y = 2.3;
 	sprites_distances(data, *p);
-	if (data->sprites[1].player_dist > 1) 
-		sprites(data, data->wall_dists, *p, data->sprites[1]);
 	sprites(data, data->wall_dists, *p, data->sprites[0]);
 }
