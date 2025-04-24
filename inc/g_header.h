@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   g_header.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
+/*   By: achbira <achbira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 21:22:23 by ychagri           #+#    #+#             */
-/*   Updated: 2025/04/24 21:24:34 by ychagri          ###   ########.fr       */
+/*   Updated: 2025/04/24 23:08:04 by achbira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,18 @@
 # include <stdbool.h>
 # include <math.h>
 # include <mlx.h>
+
+# define FIRE00 "textures/fire/fire00.xpm"
+# define FIRE01 "textures/fire/fire01.xpm"
+# define FIRE02 "textures/fire/fire02.xpm"
+# define FIRE03 "textures/fire/fire03.xpm"
+# define FIRE04 "textures/fire/fire04.xpm"
+# define FIRE05 "textures/fire/fire05.xpm"
+# define FIRE06 "textures/fire/fire06.xpm"
+# define FIRE07 "textures/fire/fire07.xpm"
+# define FIRE08 "textures/fire/fire08.xpm"
+# define FIRE09 "textures/fire/fire09.xpm"
+# define FIRE10 "textures/fire/fire10.xpm"
 
 # define RED   "\x1B[31m"
 # define GREEN "\x1B[32m"

@@ -43,7 +43,9 @@ BNS		:= 	Bonus/parse/errors_bonus.c \
 			Bonus/stuff/rays_go_brrr_bonus.c \
 			Bonus/stuff/tex_loading_bonus.c \
 			Bonus/stuff/wall_textures_bonus.c \
-			Bonus/stuff/niminap_bonus.c
+			Bonus/stuff/niminap_bonus.c	\
+			Bonus/stuff/sprites_bonus.c \
+			Bonus/stuff/more_rays_bonus.c
 			
 BOBG	:= $(BNS:.c=.o)
 		

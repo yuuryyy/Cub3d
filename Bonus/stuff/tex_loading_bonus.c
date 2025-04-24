@@ -6,7 +6,7 @@
 /*   By: achbira <achbira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 23:55:30 by ychagri           #+#    #+#             */
-/*   Updated: 2025/04/24 15:10:02 by achbira          ###   ########.fr       */
+/*   Updated: 2025/04/24 23:22:34 by achbira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	destroy_all_textures(t_ready_tex *textures, void *mlx)
 void	load_texture(t_data *data, t_loaded_tex *tex, void *mlx, char *file)
 {
 	tex->img.img = mlx_xpm_file_to_image(mlx, file, &tex->width, &tex->height);
-	if (!tex->img.img) // destroy raycasting data TODO:
+	if (!tex->img.img)
 	{
 		free_data(data);
 		destroy_all_textures(&data->ready_tex, data->mlx);
@@ -55,30 +55,21 @@ void	load_texture(t_data *data, t_loaded_tex *tex, void *mlx, char *file)
 
 void	load_all_textures(t_ready_tex *textures, void *mlx, t_data *data)
 {
-	// printf("Loading textures\n");
 	load_texture(data, &textures->no_txtr, mlx, data->textures->no_txtr);
 	load_texture(data, &textures->so_txtr, mlx, data->textures->so_txtr);
 	load_texture(data, &textures->ea_txtr, mlx, data->textures->ea_txtr);
 	load_texture(data, &textures->we_txtr, mlx, data->textures->we_txtr);
-    load_texture(data, &data->sprites.texpm[0], mlx, "textures/fire/fire00.xpm");
-    load_texture(data, &data->sprites.texpm[1], mlx, "textures/fire/fire01.xpm");
-    load_texture(data, &data->sprites.texpm[2], mlx, "textures/fire/fire02.xpm");
-    load_texture(data, &data->sprites.texpm[3], mlx, "textures/fire/fire03.xpm");
-    load_texture(data, &data->sprites.texpm[4], mlx, "textures/fire/fire04.xpm");
-    load_texture(data, &data->sprites.texpm[5], mlx, "textures/fire/fire05.xpm");
-    load_texture(data, &data->sprites.texpm[6], mlx, "textures/fire/fire06.xpm");
-    load_texture(data, &data->sprites.texpm[7], mlx, "textures/fire/fire07.xpm");
-    load_texture(data, &data->sprites.texpm[8], mlx, "textures/fire/fire08.xpm");
-    load_texture(data, &data->sprites.texpm[9], mlx, "textures/fire/fire09.xpm");
-    load_texture(data, &data->sprites.texpm[10], mlx, "textures/fire/fire10.xpm");
-    load_texture(data, &data->sprites.texpm[11], mlx, "textures/fire/fire11.xpm");
-    load_texture(data, &data->sprites.texpm[12], mlx, "textures/fire/fire12.xpm");
-    load_texture(data, &data->sprites.texpm[13], mlx, "textures/fire/fire13.xpm");
-    load_texture(data, &data->sprites.texpm[14], mlx, "textures/fire/fire14.xpm");
-    load_texture(data, &data->sprites.texpm[15], mlx, "textures/fire/fire15.xpm");
-    load_texture(data, &data->sprites.texpm[16], mlx, "textures/fire/fire16.xpm");
-    load_texture(data, &data->sprites.texpm[17], mlx, "textures/fire/fire17.xpm");
-    load_texture(data, &data->sprites.texpm[18], mlx, "textures/fire/fire18.xpm");
+	load_texture(data, &data->sprites[0].texpm[0], mlx, FIRE00);
+	load_texture(data, &data->sprites[0].texpm[1], mlx, FIRE01);
+	load_texture(data, &data->sprites[0].texpm[2], mlx, FIRE02);
+	load_texture(data, &data->sprites[0].texpm[3], mlx, FIRE03);
+	load_texture(data, &data->sprites[0].texpm[4], mlx, FIRE04);
+	load_texture(data, &data->sprites[0].texpm[5], mlx, FIRE05);
+	load_texture(data, &data->sprites[0].texpm[6], mlx, FIRE06);
+	load_texture(data, &data->sprites[0].texpm[7], mlx, FIRE07);
+	load_texture(data, &data->sprites[0].texpm[8], mlx, FIRE08);
+	load_texture(data, &data->sprites[0].texpm[9], mlx, FIRE09);
+	load_texture(data, &data->sprites[0].texpm[10], mlx, FIRE10);
 }
 
 t_loaded_tex	*get_texture(t_data *data, t_ray *ray)

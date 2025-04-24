@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
+/*   By: achbira <achbira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 20:52:16 by ychagri           #+#    #+#             */
-/*   Updated: 2025/04/24 22:34:31 by ychagri          ###   ########.fr       */
+/*   Updated: 2025/04/25 00:05:00 by achbira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -162,6 +162,7 @@ typedef struct s_sprite
 {
 	float	x;	
 	float	y;
+	float	player_dist;
 	t_loaded_tex	texpm[20];
 	int		screenx;
 	float	xproj;
@@ -192,10 +193,15 @@ typedef struct s_data
 	t_colors	colors;
 	t_ready_tex	ready_tex;
 
-	t_sprite	sprites;
+	float		wall_dists[WIDTH + 1];
+	t_sprite	sprites[10];
 	float	sprite_idx;
 }	t_data;
 
+
+float		get_dist(float x, float y, float x1, float y1);
+void		send_rays(t_ray *r, t_player *p, t_data *data, int x);
+void		sprites(t_data *data, float *dists, t_player p, t_sprite s);
 void		create_world(t_data *all);
 t_loaded_tex *get_texture(t_data *data, t_ray *ray);
 void		load_all_textures(t_ready_tex *textures, void *mlx, t_data *data);

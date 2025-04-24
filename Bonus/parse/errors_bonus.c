@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   errors_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
+/*   By: achbira <achbira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 21:03:27 by ychagri           #+#    #+#             */
-/*   Updated: 2025/04/24 19:03:50 by ychagri          ###   ########.fr       */
+/*   Updated: 2025/04/24 23:23:04 by achbira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,8 @@ void	destroy_textures(t_data *data)
 	if (data->ready_tex.ea_txtr.img.img)
 		mlx_destroy_image(data->mlx, data->ready_tex.ea_txtr.img.img);
 	while (++i < 19)
-		if (data->sprites.texpm[i].img.img)
-			mlx_destroy_image(data->mlx, data->sprites.texpm[i].img.img);
+		if (data->sprites[0].texpm[i].img.img)
+			mlx_destroy_image(data->mlx, data->sprites[0].texpm[i].img.img);
 }
 
 void	free_data(t_data *data)
