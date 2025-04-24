@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rays_go_brrr_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: achbira <achbira@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 20:34:33 by achbira           #+#    #+#             */
-/*   Updated: 2025/04/24 15:13:10 by achbira          ###   ########.fr       */
+/*   Updated: 2025/04/24 16:07:21 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,6 @@ void	i_see_ded_ppl(t_data *data, float *dists, t_sprite s)
 	int	y;
 	
 	x = s.start_x - 1;
-	printf("%f\n", data->sprite_idx);
 	while (++x < s.end_x)
 	{
 		s.tx = ((x - (s.screenx - s.w / 2)) * s.texpm[(int)data->sprite_idx].width / s.w);

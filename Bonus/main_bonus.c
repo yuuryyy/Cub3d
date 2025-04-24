@@ -6,7 +6,7 @@
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 20:52:08 by ychagri           #+#    #+#             */
-/*   Updated: 2025/04/23 17:57:12 by ychagri          ###   ########.fr       */
+/*   Updated: 2025/04/24 16:09:02 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	mouse_rot(int x, int y, void *arg)
 		use_hips2(data->move.rot_sped/2, &data->coords.player);
 	else
 		use_hips2(-data->move.rot_sped/2, &data->coords.player);
-	if (x > WIDTH - 100 || x < 100)
+	if (x > WIDTH - 200 || x < 200)
 		mlx_mouse_move(data->mlx, data->window, WIDTH / 2, y);
 	return (a = x);
 }

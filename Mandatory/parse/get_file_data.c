@@ -6,7 +6,7 @@
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 01:30:34 by ychagri           #+#    #+#             */
-/*   Updated: 2025/03/22 02:03:54 by ychagri          ###   ########.fr       */
+/*   Updated: 2025/04/24 15:56:03 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,14 @@ char	*valid_txtr(char *texture)
 	char	*str;
 	char	*tmp;
 
-	str = ft_strchr(texture, ' ', '\t');
-	if (!str || is_empty(str))
-		return (error(CONFERR), NULL);
-	tmp = ft_strtrim(str, " \t\n");
+	tmp = ft_strtrim(texture, " \t\n");
 	free(texture);
-	return (tmp);
+	str = ft_strchr(tmp, ' ', '\t');
+	if (!str || is_empty(str))
+	return (error(CONFERR), NULL);
+	texture = ft_strtrim(str, " \t\n");
+	free(tmp);
+	return (texture);
 }
 
 char	*valid_color(char *color)
@@ -38,7 +40,7 @@ char	*valid_color(char *color)
 	if (!split)
 		return (error("\tmalloc failed"), NULL);
 	if (array_len(split) != 3)
-		return (error(CONFERR), free_array(split), NULL);
+		return (error(CONFERR), free_array(split), free(textr), NULL);
 	i = -1;
 	while (split[++i])
 	{
@@ -46,10 +48,10 @@ char	*valid_color(char *color)
 		while (split[i][++k])
 		{
 			if (split[i][k] > '9' || split[i][k] < '0')
-				return (error(CONFERR), free_array(split), NULL);
+				return (error(CONFERR), free_array(split), free(textr), NULL);
 		}
 		if (k > 3 || k < 1 || ft_atoi(split[i]) > 255 || ft_atoi(split[i]) < 0)
-			return (error(CONFERR), free_array(split), NULL);
+			return (error(CONFERR), free_array(split), free(textr), NULL);
 	}
 	free_array(split);
 	return (textr);
