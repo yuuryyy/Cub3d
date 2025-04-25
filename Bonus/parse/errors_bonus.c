@@ -6,7 +6,7 @@
 /*   By: achbira <achbira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 21:03:27 by ychagri           #+#    #+#             */
-/*   Updated: 2025/04/24 23:23:04 by achbira          ###   ########.fr       */
+/*   Updated: 2025/04/25 11:46:53 by achbira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,10 @@ void	destroy_textures(t_data *data)
 		mlx_destroy_image(data->mlx, data->ready_tex.we_txtr.img.img);
 	if (data->ready_tex.ea_txtr.img.img)
 		mlx_destroy_image(data->mlx, data->ready_tex.ea_txtr.img.img);
-	while (++i < 19)
-		if (data->sprites[0].texpm[i].img.img)
-			mlx_destroy_image(data->mlx, data->sprites[0].texpm[i].img.img);
+	while (++i < 11)
+		if (data->s_tex[i].img.img)
+			mlx_destroy_image(data->mlx, data->s_tex[i].img.img);
+	ft_lstclear(&data->sprite, free);
 }
 
 void	free_data(t_data *data)

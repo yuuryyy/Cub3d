@@ -6,7 +6,7 @@
 /*   By: achbira <achbira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 20:34:33 by achbira           #+#    #+#             */
-/*   Updated: 2025/04/25 00:36:59 by achbira          ###   ########.fr       */
+/*   Updated: 2025/04/25 11:06:04 by achbira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,40 +42,48 @@ void	heaven_and_earth(t_data *data, t_ray *r, int x)
 
 void	sort_arr(t_data *data)
 {
-	int			i;
-	int			j;
-	t_sprite	*s;
-	t_sprite	tmp;
+	void	*tmp;
+	t_list	*lst;
+	t_list	*lst2;
 
-	s = data->sprites;
-	i = -1;
-	while (++i < 2)
+	lst = data->sprite;
+	while (lst)
 	{
-		j = i;
-		while (++j < 2)
+		lst2 = lst->next;
+		while (lst2)
 		{
-			if (s[i].player_dist < s[j].player_dist)
+			if (((t_sprite *)lst->content)->player_dist \
+				< ((t_sprite *)lst2->content)->player_dist)
 			{
-				tmp = s[i];
-				s[i] = s[j];
-				s[j] = tmp;
+				tmp = lst->content;
+				lst->content = lst2->content;
+				lst2->content = tmp;
 			}
+			lst2 = lst2->next;
 		}
+		lst = lst->next;
 	}
 }
 
-void	sprites_distances(t_data *data, t_player p)
+void	sprites_distances(t_data *data, t_player p, t_list	**list)
 {
 	t_sprite	*s;
-	int			i;
+	t_list		*lst;
 
-	s = data->sprites;
-	i = -1;
-	while (++i < 2)
+	lst = *list;
+	while (lst)
 	{
-		s[i].player_dist = get_dist(s[i].x, s[i].y, p.x, p.y);
+		s = lst->content;
+		s->player_dist = get_dist(s->x, s->y, p.x, p.y);
+		lst = lst->next;
 	}
 	sort_arr(data);
+	lst = *list;
+	while (lst)
+	{
+		sprites(data, data->wall_dists, p, *(t_sprite *)lst->content);
+		lst = lst->next;
+	}
 }
 
 void	create_world(t_data *data)
@@ -93,11 +101,5 @@ void	create_world(t_data *data)
 		send_rays(&r, p, data, x);
 		heaven_and_earth(data, &r, x);
 	}
-	data->sprites[1] = data->sprites[0];
-	data->sprites[0].x = 26.5;
-	data->sprites[0].y = 1.3;
-	data->sprites[1].x = 30.5;
-	data->sprites[1].y = 2.3;
-	sprites_distances(data, *p);
-	sprites(data, data->wall_dists, *p, data->sprites[0]);
+	sprites_distances(data, *p, &data->sprite);
 }

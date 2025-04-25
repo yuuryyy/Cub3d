@@ -6,7 +6,7 @@
 /*   By: achbira <achbira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 20:52:16 by ychagri           #+#    #+#             */
-/*   Updated: 2025/04/25 00:05:00 by achbira          ###   ########.fr       */
+/*   Updated: 2025/04/25 11:16:04 by achbira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -163,7 +163,6 @@ typedef struct s_sprite
 	float	x;	
 	float	y;
 	float	player_dist;
-	t_loaded_tex	texpm[20];
 	int		screenx;
 	float	xproj;
 	float	yproj;
@@ -175,7 +174,9 @@ typedef struct s_sprite
 	int		start_y;
 	int		end_y;
 	int		tx;
-	int		ty;	
+	int		ty;
+	
+	struct s_sprite *next;
 }	t_sprite;
 
 
@@ -194,9 +195,11 @@ typedef struct s_data
 	t_ready_tex	ready_tex;
 
 	float		wall_dists[WIDTH + 1];
-	t_sprite	sprites[10];
-	float	sprite_idx;
+	t_loaded_tex	s_tex[20];
+	t_list		*sprite;
+	float		sprite_idx;
 }	t_data;
+
 
 
 float		get_dist(float x, float y, float x1, float y1);
@@ -206,7 +209,7 @@ void		create_world(t_data *all);
 t_loaded_tex *get_texture(t_data *data, t_ray *ray);
 void		load_all_textures(t_ready_tex *textures, void *mlx, t_data *data);
 int			build_wall_stripe(t_ray *r, t_data *all, int x);
-void	pp(int x, int y, int color, t_img *data);
+void		pp(int x, int y, int color, t_img *data);
 
 int			get_textures(t_list *content, t_data *data);
 t_list		*get_file_content(char *filename);

@@ -6,11 +6,27 @@
 /*   By: achbira <achbira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 03:48:48 by ychagri           #+#    #+#             */
-/*   Updated: 2025/04/24 14:46:00 by achbira          ###   ########.fr       */
+/*   Updated: 2025/04/25 11:32:30 by achbira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
+
+int	coloring(int color, float dis)
+{
+	int		red;
+	int		green;
+	int		blue;
+	float	brightness;
+
+	brightness = 1;
+	if (dis)
+		brightness = fmin(1, (1.0 / dis));
+	red = ((color >> 16) & 0xFF) * brightness;
+	green = ((color >> 8) & 0xFF) * brightness;
+	blue = (color & 0xFF) * brightness;
+	return (((int)(0xff * brightness) << 24) + (red << 16) + (green << 8) + blue);
+}
 
 int	get_tex_x(t_ray *r, t_loaded_tex *tex, float wall_x)
 {
@@ -43,6 +59,7 @@ int	draw_wall_stripe(t_ray *r, t_data *all, int x, t_loaded_tex *tex)
 		r->color = *(unsigned int *)(tex->img.addr + \
 				(tex_y * tex->img.line_length + \
 					tex_x * (tex->img.bits_per_pixel / 8)));
+		r->color = coloring(r->color, r->wall_dist);
 		pp(x, y, r->color, &all->game_img);
 	}
 	return (y);

@@ -6,7 +6,7 @@
 /*   By: achbira <achbira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 23:55:30 by ychagri           #+#    #+#             */
-/*   Updated: 2025/04/24 23:22:34 by achbira          ###   ########.fr       */
+/*   Updated: 2025/04/25 10:09:28 by achbira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,17 +59,17 @@ void	load_all_textures(t_ready_tex *textures, void *mlx, t_data *data)
 	load_texture(data, &textures->so_txtr, mlx, data->textures->so_txtr);
 	load_texture(data, &textures->ea_txtr, mlx, data->textures->ea_txtr);
 	load_texture(data, &textures->we_txtr, mlx, data->textures->we_txtr);
-	load_texture(data, &data->sprites[0].texpm[0], mlx, FIRE00);
-	load_texture(data, &data->sprites[0].texpm[1], mlx, FIRE01);
-	load_texture(data, &data->sprites[0].texpm[2], mlx, FIRE02);
-	load_texture(data, &data->sprites[0].texpm[3], mlx, FIRE03);
-	load_texture(data, &data->sprites[0].texpm[4], mlx, FIRE04);
-	load_texture(data, &data->sprites[0].texpm[5], mlx, FIRE05);
-	load_texture(data, &data->sprites[0].texpm[6], mlx, FIRE06);
-	load_texture(data, &data->sprites[0].texpm[7], mlx, FIRE07);
-	load_texture(data, &data->sprites[0].texpm[8], mlx, FIRE08);
-	load_texture(data, &data->sprites[0].texpm[9], mlx, FIRE09);
-	load_texture(data, &data->sprites[0].texpm[10], mlx, FIRE10);
+	load_texture(data, &data->s_tex[0], mlx, FIRE00);
+	load_texture(data, &data->s_tex[1], mlx, FIRE01);
+	load_texture(data, &data->s_tex[2], mlx, FIRE02);
+	load_texture(data, &data->s_tex[3], mlx, FIRE03);
+	load_texture(data, &data->s_tex[4], mlx, FIRE04);
+	load_texture(data, &data->s_tex[5], mlx, FIRE05);
+	load_texture(data, &data->s_tex[6], mlx, FIRE06);
+	load_texture(data, &data->s_tex[7], mlx, FIRE07);
+	load_texture(data, &data->s_tex[8], mlx, FIRE08);
+	load_texture(data, &data->s_tex[9], mlx, FIRE09);
+	load_texture(data, &data->s_tex[10], mlx, FIRE10);
 }
 
 t_loaded_tex	*get_texture(t_data *data, t_ray *ray)
