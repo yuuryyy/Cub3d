@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_file_data.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
+/*   By: achbira <achbira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 01:30:34 by ychagri           #+#    #+#             */
-/*   Updated: 2025/04/25 00:47:39 by ychagri          ###   ########.fr       */
+/*   Updated: 2025/04/25 19:08:34 by achbira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,6 @@ int	check_textures(t_data *data, t_list *content)
 		return (ft_lstclear(&content, free_del), 1);
 	return (0);
 }
-
 
 int	get_color(char *color)
 {

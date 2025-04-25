@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
+/*   By: achbira <achbira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 20:52:16 by ychagri           #+#    #+#             */
-/*   Updated: 2025/04/25 18:03:52 by ychagri          ###   ########.fr       */
+/*   Updated: 2025/04/25 19:30:33 by achbira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -197,6 +197,7 @@ typedef struct s_data
 	float		wall_dists[WIDTH + 1];
 	t_loaded_tex	s_tex[20];
 	t_loaded_tex	e_tex;
+	t_loaded_tex	door_tex;
 	t_list		*sprite;
 	float		sprite_idx;
 }	t_data;

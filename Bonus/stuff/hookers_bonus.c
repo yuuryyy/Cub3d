@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hookers_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
+/*   By: achbira <achbira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 20:34:40 by achbira           #+#    #+#             */
-/*   Updated: 2025/04/24 19:15:23 by ychagri          ###   ########.fr       */
+/*   Updated: 2025/04/25 19:19:14 by achbira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ int	x_exit(t_data *data)
 	return (exit(0), 0);
 }
 
-void	close_open_door(t_data *data, t_vect door)
+void	close_open_door(t_data *data, t_vect door, t_player p)
 {
-	if (door.x != -1)
+	if (door.x != -1 && get_dist(p.x, p.y, door.x, door.y) < 2)
 	{
 		if (data->map[(int)door.y][(int)door.x] == '2')
 			data->map[(int)door.y][(int)door.x] = '3';
@@ -46,8 +46,10 @@ int	key_press_hook(int keycode, t_data *data)
 		data->move.a = 1;
 	if (keycode == 'd')
 		data->move.d = 1;
+	if (keycode == 'q')
+		data->move.mov_sped *= 2;
 	if (keycode == 'e')
-		close_open_door(data, data->coords.player.target_door);
+		close_open_door(data, data->coords.player.target_door, data->coords.player);
 	return (0);
 }
 
@@ -65,5 +67,7 @@ int	key_release_hook(int keycode, t_data *data)
 		data->move.a = 0;
 	if (keycode == 'd')
 		data->move.d = 0;
+	if (keycode == 'q')
+		data->move.mov_sped /= 2;
 	return (0);
 }

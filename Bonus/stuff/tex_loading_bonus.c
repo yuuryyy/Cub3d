@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tex_loading_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
+/*   By: achbira <achbira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 23:55:30 by ychagri           #+#    #+#             */
-/*   Updated: 2025/04/25 18:04:30 by ychagri          ###   ########.fr       */
+/*   Updated: 2025/04/25 19:35:01 by achbira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,8 @@ void	load_all_textures(t_ready_tex *textures, void *mlx, t_data *data)
 	load_texture(data, &data->s_tex[8], mlx, FIRE08);
 	load_texture(data, &data->s_tex[9], mlx, FIRE09);
 	load_texture(data, &data->s_tex[10], mlx, FIRE10);
-	load_texture(data, &data->e_tex, mlx, "./textures/letter-e.xpm");
+	load_texture(data, &data->e_tex, mlx, "./textures/letter-e2.xpm");
+	load_texture(data, &data->door_tex, mlx, "./textures/door.xpm");
 }
 
 t_loaded_tex	*get_texture(t_data *data, t_ray *ray)

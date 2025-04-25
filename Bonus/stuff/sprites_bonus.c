@@ -3,30 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   sprites_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
+/*   By: achbira <achbira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 21:24:54 by achbira           #+#    #+#             */
-/*   Updated: 2025/04/25 17:19:39 by ychagri          ###   ########.fr       */
+/*   Updated: 2025/04/25 19:09:23 by achbira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
-
-int	coloring2(int color, float dis)
-{
-	int		red;
-	int		green;
-	int		blue;
-	float	brightness;
-
-	brightness = 1;
-	if (dis)
-		brightness = fmin(1, (1.0 / dis) * 2);
-	red = ((color >> 16) & 0xFF) * brightness;
-	green = ((color >> 8) & 0xFF) * brightness;
-	blue = (color & 0xFF) * brightness;
-	return (((int)(0xff * brightness) << 24) + (red << 16) + (green << 8) + blue);
-}
 
 void	put_sprite(t_data *data, float *dists, t_sprite s, t_loaded_tex	tex)
 {

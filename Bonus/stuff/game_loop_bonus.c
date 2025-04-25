@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_loop_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
+/*   By: achbira <achbira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 03:09:10 by achbira           #+#    #+#             */
-/*   Updated: 2025/04/25 18:15:07 by ychagri          ###   ########.fr       */
+/*   Updated: 2025/04/25 19:44:37 by achbira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,38 @@ int	clear_canvas(t_data *data)
 	return (0);
 }
 
+void	put_button(t_data *data, t_loaded_tex tex)
+{
+	int	i;
+	int	j;
+	int	color;
+
+	i = 0;
+	while (i < tex.height)
+	{
+		j = 0;
+		while (j < tex.width)
+		{
+			color = ((int *)tex.img.addr)[i * tex.width + j];
+			if (get_dist(j, i, tex.width / 2, tex.height / 2) \
+				> tex.width / 2 && ++j)
+				continue ;
+			else
+				pp(WIDTH / 2 - tex.width / 2 + j, 3 * HEIGHT / 4 \
+					- tex.height / 2 + i, color, &data->game_img);
+			j++;
+		}
+		i++;
+	}
+}
+
 int	game_loop(void *arg)
 {
-	t_data	*data;
+	t_data		*data;
+	t_player	p;
 
 	data = arg;
+	p = data->coords.player;
 	if (clear_canvas(data))
 		x_exit(data);
 	data->sprite_idx += 0.3;
@@ -40,26 +67,8 @@ int	game_loop(void *arg)
 	move_player(data);
 	create_world(data);
 	draw_minimap(data);
-	if (data->coords.player.target_door.x != -1)
-	{
-		t_loaded_tex tex = data->e_tex;
-		int i = 0;
-		int j = 0;
-		while (i < tex.height)
-		{
-			j = 0;
-			while (j < tex.width)
-			{
-				int color = ((int *)tex.img.addr)[i * tex.width + j];
-				// if (get_dist(HEIGHT/2 , WIDTH/2, HEIGHT / 2 - tex.height/2 + i, WIDTH /2 - tex.width/2 + j) > tex.width / 2)
-					// continue;
-				// else
-					pp(WIDTH /2 - tex.width/2 + j, HEIGHT / 2 - tex.height/2 + i, color, &data->game_img);
-				j++;
-			}
-			i++;
-		}
-	}
+	if (p.target_door.x != -1 && get_dist(p.x, p.y, p.target_door.x, p.target_door.y) < 2)
+		put_button(data, data->e_tex);
 	mlx_put_image_to_window(data->mlx, data->window, data->game_img.img, 0, 0);
 	return (0);
 }
