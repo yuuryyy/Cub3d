@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
+/*   By: achbira <achbira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 19:04:48 by ychagri           #+#    #+#             */
-/*   Updated: 2024/03/11 21:20:13 by ychagri          ###   ########.fr       */
+/*   Updated: 2025/04/25 23:13:51 by achbira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 #include "../Libft/libft.h"
-
 
 int	fts1(char	**s1, char	*s2)
 {

@@ -3,45 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
+/*   By: achbira <achbira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 20:52:16 by ychagri           #+#    #+#             */
-/*   Updated: 2025/04/25 22:58:52 by ychagri          ###   ########.fr       */
+/*   Updated: 2025/04/25 23:15:11 by achbira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_PARSE_H
-# define CUB3D_PARSE_H
+#ifndef CUB3D_BONUS_H
+# define CUB3D_BONUS_H
 
-#include "g_header.h"
-
-# define TW 64
-# define TH 64
+# include "g_header.h"
 
 // ######## MINI MAP params ###########
 # define MAP_X 10
 # define MAP_Y 10
-# define MAP_W (WIDTH / 4)
-# define MAP_H (HEIGHT / 4)
 
 // ######
-# define MAP_BORDER_SIZE 1
 # define MAP_BORDER 0x306367
-
-#define FLOOR_COLOR  0x808080  // grey color
-
+# define FLOOR_COLOR  0x808080
 # define MAP_COLOR 0x00000
 # define MAP_WALL 0x1F0E04
-
 # define PLAYER_COLOR 0x800020
 # define PLAYER_SIZE 6
 
-
-
-#define POINTER_SIZE 5   // Size of the arrowhead
-#define POINTER_LENGTH 10 // Length of the arrow
-
-
+# define POINTER_SIZE 5   // Size of the arrowhead
+# define POINTER_LENGTH 10 // Length of the arrow
 // ####################################
 
 typedef struct s_img
@@ -60,7 +47,7 @@ typedef struct s_vect
 	float	y;
 }	t_vect;
 
-typedef enum  s_position
+typedef enum s_position
 {
 	north = 1,
 	south = 2,
@@ -78,7 +65,7 @@ typedef struct s_player
 	t_vect		target_door;
 }	t_player;
 
-typedef	struct s_map
+typedef struct s_map
 {
 	t_player	player;
 	size_t		width;
@@ -95,48 +82,46 @@ typedef struct s_textures
 	char		*c_color;
 }	t_textures;
 
-typedef	struct s_colors
+typedef struct s_colors
 {
 	int	f_color;
 	int	c_color;
 }	t_colors;
 
-
 typedef struct s_controller
 {
-	int	w;
-	int	a;
-	int	s;
-	int	d;
-	int	rr;
-	int	rl;
-	float mov_sped;
-	float rot_sped;	
+	int		w;
+	int		a;
+	int		s;
+	int		d;
+	int		rr;
+	int		rl;
+	float	mov_sped;
+	float	rot_sped;	
 }	t_controller;
 
 // raaaaaaaaaaaaaaaaaaa
 typedef struct s_ray
 {
-	t_vect	dir;
+	t_vect			dir;
 
-	t_vect	side;
-	t_vect	delta;
+	t_vect			side;
+	t_vect			delta;
 
-	t_vect	step;
-	int		map_y;
-	int		map_x;
+	t_vect			step;
+	int				map_y;
+	int				map_x;
 
-	int		v_h;
-	float	wall_dist;
-	float	wall_x;
-	int		hit_wall;
+	int				v_h;
+	float			wall_dist;
+	float			wall_x;
+	int				hit_wall;
 
-	int		line_h;
-	int		start;
-	int		end;
+	int				line_h;
+	int				start;
+	int				end;
 	unsigned int	color;
 }	t_ray;
-
 
 typedef struct s_loaded_tex
 {
@@ -145,7 +130,6 @@ typedef struct s_loaded_tex
 	int		height;
 
 }	t_loaded_tex;
-
 
 typedef struct s_ready_tex
 {
@@ -157,39 +141,37 @@ typedef struct s_ready_tex
 
 }	t_ready_tex;
 
-
 typedef struct s_sprite
 {
-	float	x;	
-	float	y;
-	float	player_dist;
-	int		screenx;
-	float	xproj;
-	float	yproj;
-	
-	int		h;
-	int		w;
-	int		start_x;
-	int		end_x;
-	int		start_y;
-	int		end_y;
-	int		tx;
-	int		ty;
-	
-	struct s_sprite *next;
-}	t_sprite;
+	float			x;	
+	float			y;
+	float			player_dist;
+	int				screenx;
+	float			xproj;
+	float			yproj;
 
+	int				h;
+	int				w;
+	int				start_x;
+	int				end_x;
+	int				start_y;
+	int				end_y;
+	int				tx;
+	int				ty;
+
+	struct s_sprite	*next;
+}	t_sprite;
 
 typedef struct s_data
 {
 	void			*mlx;
 	void			*window;
 	t_img			game_img;
-	
+
 	char			**map;
 	t_map			coords;
-	t_controller 	move;
-	
+	t_controller	move;
+
 	t_textures		*textures;
 	t_colors		colors;
 	t_ready_tex		ready_tex;
@@ -202,18 +184,17 @@ typedef struct s_data
 	float			sprite_idx;
 }	t_data;
 
-
-
 int				add_sprite(int i, int k, t_data *data);
 float			get_dist(float x, float y, float x1, float y1);
 void			send_rays(t_ray *r, t_player *p, t_data *data, int x);
 void			sprites(t_data *data, float *dists, t_player p, t_sprite s);
 void			create_world(t_data *all);
 t_loaded_tex	*get_texture(t_data *data, t_ray *ray);
-void			load_all_textures(t_ready_tex *textures, void *mlx, t_data *data);
+void			load_all_textures(t_ready_tex *textures, \
+	void *mlx, t_data *data);
 int				build_wall_stripe(t_ray *r, t_data *all, int x);
 void			pp(int x, int y, int color, t_img *data);
-	
+
 int				get_textures(t_list *content, t_data *data);
 t_list			*get_file_content(char *filename);
 int				get_data(t_data *data, char **av);
@@ -228,6 +209,7 @@ void			error(char *err);
 bool			map_content_check(t_data *data, char **map);
 void			rect_map(char **map, t_data *data);
 t_position		player_pos(char c);
+
 int				init_data(t_data *data);
 int				game_loop(void *arg);
 void			move_player(t_data *all);
