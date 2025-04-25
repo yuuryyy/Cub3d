@@ -6,7 +6,7 @@
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 21:22:23 by ychagri           #+#    #+#             */
-/*   Updated: 2025/04/25 22:45:07 by ychagri          ###   ########.fr       */
+/*   Updated: 2025/04/25 23:07:13 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,6 @@
 # define WIDTH	1920
 # define HEIGHT	1080
 
-
 # define ARGNUM "\tInvalid number of arguments => ./cub3d *.cub."
 # define FILNAM "\tInvalid file name => ./cub3D *.cub"
 # define CE "\tthe configuration file is misconfigured."
@@ -78,18 +77,18 @@
 # define OPNMP "\tUnclosed map!"
 # define MALOC "\tMemory allocation error!"
 
-#define SO "SO "
-#define NO "NO "
-#define WE "WE "
-#define EA "EA "
-#define F "F "
-#define C "C "
-#define SOT "SO\t"
-#define NOT "NO\t"
-#define WET "WE\t"
-#define EAT "EA\t"
-#define FT "F\t"
-#define CT "C\t"
+# define SO "SO "
+# define NO "NO "
+# define WE "WE "
+# define EA "EA "
+# define F "F "
+# define C "C "
+# define SOT "SO\t"
+# define NOT "NO\t"
+# define WET "WE\t"
+# define EAT "EA\t"
+# define FT "F\t"
+# define CT "C\t"
 
 # define BASE_SPEED 0.06
 # define BASE_ROTATION_SPEED 0.07

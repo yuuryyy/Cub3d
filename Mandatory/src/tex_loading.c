@@ -6,7 +6,7 @@
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 23:55:30 by ychagri           #+#    #+#             */
-/*   Updated: 2025/04/24 18:23:41 by ychagri          ###   ########.fr       */
+/*   Updated: 2025/04/25 23:01:12 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,12 @@ void	load_texture(t_data *data, t_loaded_tex *tex, void *mlx, char *file)
 	}
 }
 
-void	load_all_textures(t_ready_tex *textures, void *mlx, t_data *data)
+void	load_all_textures(t_ready_tex *textures, void *mlx, t_data *d)
 {
-	load_texture(data, &textures->no_txtr, mlx, data->textures->no_txtr);
-	load_texture(data, &textures->so_txtr, mlx, data->textures->so_txtr);
-	load_texture(data, &textures->ea_txtr, mlx, data->textures->ea_txtr);
-	load_texture(data, &textures->we_txtr, mlx, data->textures->we_txtr);
+	load_texture(d, &textures->no_txtr, mlx, d->textures->no_txtr);
+	load_texture(d, &textures->so_txtr, mlx, d->textures->so_txtr);
+	load_texture(d, &textures->ea_txtr, mlx, d->textures->ea_txtr);
+	load_texture(d, &textures->we_txtr, mlx, d->textures->we_txtr);
 }
 
 t_loaded_tex	*get_texture(t_data *data, t_ray *ray)

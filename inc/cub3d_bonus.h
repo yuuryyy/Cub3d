@@ -6,7 +6,7 @@
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 20:52:16 by ychagri           #+#    #+#             */
-/*   Updated: 2025/04/25 21:45:06 by ychagri          ###   ########.fr       */
+/*   Updated: 2025/04/25 22:58:52 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -182,61 +182,58 @@ typedef struct s_sprite
 
 typedef struct s_data
 {
-	void		*mlx;
-	void		*window;
-	t_img		game_img;
+	void			*mlx;
+	void			*window;
+	t_img			game_img;
 	
-	char		**map;
-	t_map		coords;
-	t_controller move;
+	char			**map;
+	t_map			coords;
+	t_controller 	move;
 	
-	t_textures	*textures;
-	t_colors	colors;
-	t_ready_tex	ready_tex;
+	t_textures		*textures;
+	t_colors		colors;
+	t_ready_tex		ready_tex;
 
-	float		wall_dists[WIDTH + 1];
+	float			wall_dists[WIDTH + 1];
 	t_loaded_tex	s_tex[20];
 	t_loaded_tex	e_tex;
 	t_loaded_tex	door_tex;
-	t_list		*sprite;
-	float		sprite_idx;
+	t_list			*sprite;
+	float			sprite_idx;
 }	t_data;
 
 
 
-int			add_sprite(int i, int k, t_data *data);
-float		get_dist(float x, float y, float x1, float y1);
-void		send_rays(t_ray *r, t_player *p, t_data *data, int x);
-void		sprites(t_data *data, float *dists, t_player p, t_sprite s);
-void		create_world(t_data *all);
-t_loaded_tex *get_texture(t_data *data, t_ray *ray);
-void		load_all_textures(t_ready_tex *textures, void *mlx, t_data *data);
-int			build_wall_stripe(t_ray *r, t_data *all, int x);
-void		pp(int x, int y, int color, t_img *data);
-
-int			get_textures(t_list *content, t_data *data);
-t_list		*get_file_content(char *filename);
-int			get_data(t_data *data, char **av);
-int			check_data(t_data *data, char **av);
-char		**get_map(t_list *content);
-void		free_data(t_data *data);
-void		free_array(char	**str);
-int			array_len(char **str);
-bool		is_empty(char *line);
-void		free_del(void *str);
-void		error(char *err);
-bool		map_content_check(t_data *data, char **map);
-void		rect_map(char **map, t_data *data);
-t_position	player_pos(char c);
-
-
-int		init_data(t_data *data);
-int		game_loop(void *arg);
-void	move_player(t_data *all);
-int		x_exit(t_data *data);
-int		key_release_hook(int keycode, t_data *data);
-int		key_press_hook(int keycode, t_data *data);
-
-void	draw_minimap(t_data *data);
+int				add_sprite(int i, int k, t_data *data);
+float			get_dist(float x, float y, float x1, float y1);
+void			send_rays(t_ray *r, t_player *p, t_data *data, int x);
+void			sprites(t_data *data, float *dists, t_player p, t_sprite s);
+void			create_world(t_data *all);
+t_loaded_tex	*get_texture(t_data *data, t_ray *ray);
+void			load_all_textures(t_ready_tex *textures, void *mlx, t_data *data);
+int				build_wall_stripe(t_ray *r, t_data *all, int x);
+void			pp(int x, int y, int color, t_img *data);
+	
+int				get_textures(t_list *content, t_data *data);
+t_list			*get_file_content(char *filename);
+int				get_data(t_data *data, char **av);
+int				check_data(t_data *data, char **av);
+char			**get_map(t_list *content);
+void			free_data(t_data *data);
+void			free_array(char	**str);
+int				array_len(char **str);
+bool			is_empty(char *line);
+void			free_del(void *str);
+void			error(char *err);
+bool			map_content_check(t_data *data, char **map);
+void			rect_map(char **map, t_data *data);
+t_position		player_pos(char c);
+int				init_data(t_data *data);
+int				game_loop(void *arg);
+void			move_player(t_data *all);
+int				x_exit(t_data *data);
+int				key_release_hook(int keycode, t_data *data);
+int				key_press_hook(int keycode, t_data *data);
+void			draw_minimap(t_data *data);
 
 #endif
