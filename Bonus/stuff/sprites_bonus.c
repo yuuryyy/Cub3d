@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sprites_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: achbira <achbira@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 21:24:54 by achbira           #+#    #+#             */
-/*   Updated: 2025/04/25 11:33:02 by achbira          ###   ########.fr       */
+/*   Updated: 2025/04/25 17:19:39 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	put_sprite(t_data *data, float *dists, t_sprite s, t_loaded_tex	tex)
 			d = y - (HEIGHT / 2 - s.h / 2);
 			s.ty = (d * tex.height) / s.h;
 			if (!(s.tx < 0 || s.tx > 64 || s.ty < 0 || s.ty > 64))
-				color = coloring2(((int *)tex.img.addr)[s.ty * tex.width + s.tx], s.yproj);
+				color = ((int *)tex.img.addr)[s.ty * tex.width + s.tx];
 			else
 				color = 0;
 			if ((color & 0x00ffff) != 0)

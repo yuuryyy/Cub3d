@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   wall_textures_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: achbira <achbira@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 03:48:48 by ychagri           #+#    #+#             */
-/*   Updated: 2025/04/25 11:32:30 by achbira          ###   ########.fr       */
+/*   Updated: 2025/04/25 17:19:43 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,6 @@ int	draw_wall_stripe(t_ray *r, t_data *all, int x, t_loaded_tex *tex)
 		r->color = *(unsigned int *)(tex->img.addr + \
 				(tex_y * tex->img.line_length + \
 					tex_x * (tex->img.bits_per_pixel / 8)));
-		r->color = coloring(r->color, r->wall_dist);
 		pp(x, y, r->color, &all->game_img);
 	}
 	return (y);
