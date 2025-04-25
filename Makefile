@@ -4,7 +4,7 @@ BONUS	:= cub3D_bonus
 
 CC		:= cc
 
-CFLAGS	:=  -Wall -Wextra -Werror -I./inc -g -fsanitize=address
+CFLAGS	:=  -Wall -Wextra -Werror -I./inc 
 
 MFLAGS	:=	-framework OpenGL -framework AppKit -Lmlx -lmlx 
 
