@@ -1,7 +1,7 @@
-NO ./IMG/OnePixel.xpm
-SO	./textures/bw_seamless.xpm
-      WE	./textures/tes2.xpm
-EA 	./textures/tes2.xpm
+NO ./textures/Wolfenstein/blue_stone.xpm
+SO	./textures/Wolfenstein/color_stone.xpm
+	WE	./textures/Wolfenstein/redbrick.xpm
+EA 	./textures/Wolfenstein/grey_stone.xpm
 
 F 0,0,0
 C 0,0,0

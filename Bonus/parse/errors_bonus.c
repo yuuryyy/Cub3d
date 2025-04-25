@@ -6,7 +6,7 @@
 /*   By: achbira <achbira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 21:03:27 by ychagri           #+#    #+#             */
-/*   Updated: 2025/04/25 19:33:26 by achbira          ###   ########.fr       */
+/*   Updated: 2025/04/25 21:29:05 by achbira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	destroy_textures(t_data *data)
 		mlx_destroy_image(data->mlx, data->e_tex.img.img);
 	if (data->door_tex.img.img)
 		mlx_destroy_image(data->mlx, data->door_tex.img.img);
-	while (++i < 11)
+	while (++i < 19)
 		if (data->s_tex[i].img.img)
 			mlx_destroy_image(data->mlx, data->s_tex[i].img.img);
 	ft_lstclear(&data->sprite, free);

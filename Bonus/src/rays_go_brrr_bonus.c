@@ -6,7 +6,7 @@
 /*   By: achbira <achbira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 20:34:33 by achbira           #+#    #+#             */
-/*   Updated: 2025/04/25 11:06:04 by achbira          ###   ########.fr       */
+/*   Updated: 2025/04/25 21:01:55 by achbira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,8 @@ void	sprites_distances(t_data *data, t_player p, t_list	**list)
 	{
 		s = lst->content;
 		s->player_dist = get_dist(s->x, s->y, p.x, p.y);
+		if (s->player_dist < 0.5)
+			x_exit(data);
 		lst = lst->next;
 	}
 	sort_arr(data);

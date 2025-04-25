@@ -6,7 +6,7 @@
 /*   By: achbira <achbira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 21:22:23 by ychagri           #+#    #+#             */
-/*   Updated: 2025/04/24 23:08:04 by achbira          ###   ########.fr       */
+/*   Updated: 2025/04/25 21:28:24 by achbira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,34 @@
 # define FIRE08 "textures/fire/fire08.xpm"
 # define FIRE09 "textures/fire/fire09.xpm"
 # define FIRE10 "textures/fire/fire10.xpm"
+# define FIRE11 "textures/fire/fire11.xpm"
+# define FIRE12 "textures/fire/fire12.xpm"
+# define FIRE13 "textures/fire/fire13.xpm"
+# define FIRE14 "textures/fire/fire14.xpm"
+# define FIRE15 "textures/fire/fire15.xpm"
+# define FIRE16 "textures/fire/fire16.xpm"
+# define FIRE17 "textures/fire/fire17.xpm"
+# define FIRE18 "textures/fire/fire18.xpm"
+
+# define PORTAL00 "textures/portal/portal00.xpm"
+# define PORTAL01 "textures/portal/portal01.xpm"
+# define PORTAL02 "textures/portal/portal02.xpm"
+# define PORTAL03 "textures/portal/portal03.xpm"
+# define PORTAL04 "textures/portal/portal04.xpm"
+# define PORTAL05 "textures/portal/portal05.xpm"
+# define PORTAL06 "textures/portal/portal06.xpm"
+# define PORTAL07 "textures/portal/portal07.xpm"
+# define PORTAL08 "textures/portal/portal08.xpm"
+# define PORTAL09 "textures/portal/portal09.xpm"
+# define PORTAL10 "textures/portal/portal10.xpm"
+# define PORTAL11 "textures/portal/portal11.xpm"
+# define PORTAL12 "textures/portal/portal12.xpm"
+# define PORTAL13 "textures/portal/portal13.xpm"
+# define PORTAL14 "textures/portal/portal14.xpm"
+# define PORTAL15 "textures/portal/portal15.xpm"
+# define PORTAL16 "textures/portal/portal16.xpm"
+# define PORTAL17 "textures/portal/portal17.xpm"
+# define PORTAL18 "textures/portal/portal18.xpm"
 
 # define RED   "\x1B[31m"
 # define GREEN "\x1B[32m"

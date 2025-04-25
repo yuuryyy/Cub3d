@@ -6,7 +6,7 @@
 /*   By: achbira <achbira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 20:34:40 by achbira           #+#    #+#             */
-/*   Updated: 2025/04/25 19:19:14 by achbira          ###   ########.fr       */
+/*   Updated: 2025/04/25 21:14:24 by achbira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,8 @@ int	key_press_hook(int keycode, t_data *data)
 	if (keycode == 'q')
 		data->move.mov_sped *= 2;
 	if (keycode == 'e')
-		close_open_door(data, data->coords.player.target_door, data->coords.player);
+		close_open_door(data, data->coords.player.target_door, \
+			data->coords.player);
 	return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: achbira <achbira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 03:09:10 by achbira           #+#    #+#             */
-/*   Updated: 2025/04/25 19:44:37 by achbira          ###   ########.fr       */
+/*   Updated: 2025/04/25 21:28:41 by achbira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,13 +61,14 @@ int	game_loop(void *arg)
 	p = data->coords.player;
 	if (clear_canvas(data))
 		x_exit(data);
-	data->sprite_idx += 0.3;
-	if (data->sprite_idx > 10)
+	data->sprite_idx += 0.5;
+	if (data->sprite_idx > 18)
 		data->sprite_idx = 0;
 	move_player(data);
 	create_world(data);
 	draw_minimap(data);
-	if (p.target_door.x != -1 && get_dist(p.x, p.y, p.target_door.x, p.target_door.y) < 2)
+	if (p.target_door.x != -1 \
+		&& get_dist(p.x, p.y, p.target_door.x, p.target_door.y) < 2)
 		put_button(data, data->e_tex);
 	mlx_put_image_to_window(data->mlx, data->window, data->game_img.img, 0, 0);
 	return (0);

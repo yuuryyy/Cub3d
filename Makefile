@@ -21,13 +21,13 @@ SRC		:=	Mandatory/parse/errors.c \
 			Mandatory/parse/get_file_data.c \
 			Mandatory/parse/fill_sp.c \
 			Mandatory/cub.c \
-			Mandatory/stuff/controls.c \
-			Mandatory/stuff/game_loop.c \
-			Mandatory/stuff/init_stuff.c \
-			Mandatory/stuff/hookers.c \
-			Mandatory/stuff/rays_go_brrr.c \
-			Mandatory/stuff/tex_loading.c \
-			Mandatory/stuff/wall_textures.c \
+			Mandatory/src/controls.c \
+			Mandatory/src/game_loop.c \
+			Mandatory/src/init_stuff.c \
+			Mandatory/src/hookers.c \
+			Mandatory/src/rays_go_brrr.c \
+			Mandatory/src/tex_loading.c \
+			Mandatory/src/wall_textures.c \
 
 BNS		:= 	Bonus/parse/errors_bonus.c \
 			Bonus/parse/file_check_bonus.c \
@@ -36,16 +36,16 @@ BNS		:= 	Bonus/parse/errors_bonus.c \
 			Bonus/parse/get_file_data_bonus.c \
 			Bonus/parse/fill_sp_bonus.c \
 			Bonus/main_bonus.c \
-			Bonus/stuff/controls_bonus.c \
-			Bonus/stuff/game_loop_bonus.c \
-			Bonus/stuff/init_stuff_bonus.c \
-			Bonus/stuff/hookers_bonus.c \
-			Bonus/stuff/rays_go_brrr_bonus.c \
-			Bonus/stuff/tex_loading_bonus.c \
-			Bonus/stuff/wall_textures_bonus.c \
-			Bonus/stuff/niminap_bonus.c	\
-			Bonus/stuff/sprites_bonus.c \
-			Bonus/stuff/more_rays_bonus.c
+			Bonus/src/controls_bonus.c \
+			Bonus/src/game_loop_bonus.c \
+			Bonus/src/init_stuff_bonus.c \
+			Bonus/src/hookers_bonus.c \
+			Bonus/src/rays_go_brrr_bonus.c \
+			Bonus/src/tex_loading_bonus.c \
+			Bonus/src/wall_textures_bonus.c \
+			Bonus/src/niminap_bonus.c	\
+			Bonus/src/sprites_bonus.c \
+			Bonus/src/more_rays_bonus.c
 			
 BOBG	:= $(BNS:.c=.o)
 		
