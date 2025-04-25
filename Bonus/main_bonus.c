@@ -6,7 +6,7 @@
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 20:52:08 by ychagri           #+#    #+#             */
-/*   Updated: 2025/04/25 17:21:40 by ychagri          ###   ########.fr       */
+/*   Updated: 2025/04/25 22:52:38 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ int	mouse_rot(int x, int y, void *arg)
 	y += 0;
 	data = arg;
 	if (a < x)
-		rotate(data->move.rot_sped / 4, &data->coords.player);
+		rotate(data->move.rot_sped / 3, &data->coords.player);
 	else
-		rotate(-data->move.rot_sped / 4, &data->coords.player);
+		rotate(-data->move.rot_sped / 3, &data->coords.player);
 	if (x > WIDTH - 200 || x < 200)
 		mlx_mouse_move(data->mlx, data->window, WIDTH / 2, y);
 	return (a = x);

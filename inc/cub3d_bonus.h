@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: achbira <achbira@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 20:52:16 by ychagri           #+#    #+#             */
-/*   Updated: 2025/04/25 21:13:51 by achbira          ###   ########.fr       */
+/*   Updated: 2025/04/25 21:45:06 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -204,6 +204,7 @@ typedef struct s_data
 
 
 
+int			add_sprite(int i, int k, t_data *data);
 float		get_dist(float x, float y, float x1, float y1);
 void		send_rays(t_ray *r, t_player *p, t_data *data, int x);
 void		sprites(t_data *data, float *dists, t_player p, t_sprite s);

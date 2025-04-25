@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   g_header.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: achbira <achbira@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 21:22:23 by ychagri           #+#    #+#             */
-/*   Updated: 2025/04/25 21:28:24 by achbira          ###   ########.fr       */
+/*   Updated: 2025/04/25 22:45:07 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@
 # define PCONFLCT "\tA conflict in player's start position!"
 # define CHARR "\tInvalid characters !!"
 # define OPNMP "\tUnclosed map!"
+# define MALOC "\tMemory allocation error!"
 
 #define SO "SO "
 #define NO "NO "

@@ -6,11 +6,31 @@
 /*   By: ychagri <ychagri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 04:57:26 by ychagri           #+#    #+#             */
-/*   Updated: 2025/04/24 19:08:23 by ychagri          ###   ########.fr       */
+/*   Updated: 2025/04/25 22:45:31 by ychagri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
+
+int	add_sprite(int i, int k, t_data *data)
+{
+	t_sprite	*sprite;
+	t_list		*new;
+
+	if (data->map[i][k] != '4')
+		return (1);
+	sprite = ft_calloc(1, sizeof(t_sprite));
+	if (!sprite)
+		return (error(MALOC), x_exit(data), 0);
+	new = ft_lstnew(sprite);
+	if (!new)
+		return (free(sprite), x_exit(data), 0);
+	ft_lstadd_back(&data->sprite, new);
+	sprite->x = k + 0.5;
+	sprite->y = i + 0.5;
+	data->map[i][k] = '0';
+	return (1);
+}
 
 void	free_array(char	**str)
 {
